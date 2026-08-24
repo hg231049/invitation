@@ -32,7 +32,7 @@ function App() {
       
       <Day/>
       <Account/>
-      
+      <Info/>
       <Guestbook/>
     </main>
     </>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import SectionTitle from "../components/SectionTitle";
 const ACCOUNT_DATA = [
   {
     group: '**측 계좌',
@@ -43,7 +43,10 @@ const Account = () => {
         <section>
             <div className="inner">
                 <div className="">
-                  <h3 className="relative mb-10 font-bold text-center">마음 전하실 곳</h3>
+                  <SectionTitle
+                      subTitle="Day"
+                      title="마음 전하실 곳"
+                  />
                   {ACCOUNT_DATA.map((family,idx)=>(
                     <div key={idx} className="mb-6 p-4 border border-solid border-[#eee] rounded-[12px]">
                         <h4>{family.group}</h4>

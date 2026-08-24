@@ -1,3 +1,4 @@
+import SectionTitle from "../components/SectionTitle";
 import InvitationCalender from '../components/InvitationCalender';
 import Timer from '../components/Timer'
 import dayjs from 'dayjs';
@@ -9,6 +10,10 @@ const Day = () => {
     return (
         <section className=''>
             <div className="inner">
+                <SectionTitle
+                    subTitle="Day"
+                    title="오시는 날"
+                />
                 <div className="invitation-container w-full">
                     <h3 className='relative mb-10 font-bold text-center'>{dayjs(INVITATION_TIME).format('YYYY년 MM월 DD일 dddd A h시')}</h3>
                     <InvitationCalender/>

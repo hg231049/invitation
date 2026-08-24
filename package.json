@@ -12,6 +12,7 @@
   "dependencies": {
     "@supabase/supabase-js": "^2.112.3",
     "dayjs": "^1.11.23",
+    "lucide-react": "^1.33.0",
     "react": "^19.2.8",
     "react-calendar": "^6.0.1",
     "react-dom": "^19.2.8"

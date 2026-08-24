@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { createClient } from '@supabase/supabase-js';
-
+import SectionTitle from "../components/SectionTitle";
 // Supabase 클라이언트 설정 (본인 Project URL과 Anon Key 입력)
 const supabase = createClient('https://godyxtxgjwhnbaasipja.supabase.co/', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdvZHl4dHhnandobmJhYXNpcGphIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODcxOTE3NzksImV4cCI6MjEwMjc2Nzc3OX0.JxssPnby6iOEYXvhyqw2qZsw41Gnm0BPASBCq_sn4Xs');
 
@@ -73,7 +73,10 @@ const Guestbook = () => {
         <section>
             <div className="inner">
                <div className="">
-                    <h3 className='relative mb-10 font-bold text-center'>축하 방명록</h3>
+                    <SectionTitle
+                        subTitle="Day"
+                        title="축하 방명록"
+                    />
                     {/* 방명록 작성 폼 */}
                     <form onSubmit={handleSubmit} className='flex flex-col gap-2'>
                         <div className='flex gap-2 w-full [&_input]:w-full [&_input]:flex-1 [&_input]:p-2 [&_input]:border [&_input]:border-solid [&_input]:border-[#eee] [&_input]:rounded-[5px]'>
