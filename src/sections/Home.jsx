@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import '../css/home.css';
+import openingImage from '../assets/opening.jpeg';
 
 const Home = ({isOpen, setIsOpen}) => {
    
@@ -16,15 +16,17 @@ const Home = ({isOpen, setIsOpen}) => {
                 <div className="inside-page">
 
                     <img
-                        src="https://ecimg.cafe24img.com/pg3200b63747097031/mahanakr/web/upload/NNEditor/20260826/32bd8438912eac512e0368db48cfdacf.png"
-                        alt="웨딩 사진"
+                        src={openingImage}
+                        alt="배경 사진"
                     />
 
                     <div className="inside-content">
                         <span>OUR </span>
 
-                        <h1>
-                            은서 
+                        <h1 className=' font-pf'>
+                            Welcome <br/>
+                            To The<br/>
+                            Show
                         </h1>
 
                         <p>
@@ -46,11 +48,11 @@ const Home = ({isOpen, setIsOpen}) => {
                         </h1>
 
                         <p>
-                            EUNSEO & MINJUN
+                            EUNSEO & GUNGU
                         </p>
                     </div>
 
-                    <div className="cover-edge"></div>
+                    
 
                 </div>
 

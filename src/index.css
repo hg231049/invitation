@@ -54,7 +54,7 @@ body {
 .main-title h2 {
   font-family: 'Figtree', sans-serif;
 }
-
+.font-pf { font-family: "Petit Formal Script", cursive; }
 
 /* =========================
    스크롤바 숨김
