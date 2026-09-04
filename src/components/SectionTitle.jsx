@@ -1,6 +1,12 @@
+import { motion } from 'framer-motion';
 const SectionTitle = ({subTitle,title}) => {
     return (
-        <div className="text-center mb-8 pt-16">
+         <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+            className="section-title text-center mb-8 pt-16">
             <p className="text-[11px] tracking-[0.35em] text-stone-400 uppercase mb-3">
                 {subTitle}
             </p>
@@ -10,7 +16,7 @@ const SectionTitle = ({subTitle,title}) => {
             </h2>
 
             <div className="w-8 h-px bg-stone-300 mx-auto mt-5" />
-        </div>
+        </motion.div>
     )
 }
 
