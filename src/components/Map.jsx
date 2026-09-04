@@ -4,75 +4,37 @@ export default function KakaoMap() {
   const mapRef = useRef(null);
 
   const HALL_NAME = '로프트가든344';
-  const ADDRESS = '서울 양천구 오목로 344';
 
   useEffect(() => {
-    const loadMap = () => {
-      if (!window.kakao?.maps || !mapRef.current) return;
-
-      window.kakao.maps.load(() => {
-        const container = mapRef.current;
-
-        // 주소 → 위도/경도 변환
-        const geocoder = new window.kakao.maps.services.Geocoder();
-
-        geocoder.addressSearch(ADDRESS, (result, status) => {
-          if (
-            status !== window.kakao.maps.services.Status.OK ||
-            !result.length
-          ) {
-            console.error('주소를 좌표로 변환하지 못했습니다.');
-            return;
-          }
-
-          const LAT = Number(result[0].y);
-          const LNG = Number(result[0].x);
-
-          const position =
-            new window.kakao.maps.LatLng(LAT, LNG);
-
-          const options = {
-            center: position,
-            level: 3,
-          };
-
-          const map =
-            new window.kakao.maps.Map(
-              container,
-              options
-            );
-
-          const marker =
-            new window.kakao.maps.Marker({
-              position,
-            });
-
-          marker.setMap(map);
-        });
-      });
-    };
-
-    if (window.kakao?.maps) {
-      loadMap();
+    if (!window.kakao?.maps) {
+      console.error('카카오맵 SDK가 로드되지 않았습니다.');
       return;
     }
 
-    const script = document.createElement('script');
+    window.kakao.maps.load(() => {
+      // services 없이 지도만 생성
+      // 임시 좌표: 오목교역/로프트가든344 주변
+      const position = new window.kakao.maps.LatLng(
+        37.5245,
+        126.8750
+      );
 
-    script.src =
-      `https://dapi.kakao.com/v2/maps/sdk.js?appkey=a8c4c11e39587dfb19e4622aa34558b4&autoload=false&libraries=services`;
+      const map = new window.kakao.maps.Map(
+        mapRef.current,
+        {
+          center: position,
+          level: 4,
+        }
+      );
 
-    script.async = true;
-    script.onload = loadMap;
+      const marker = new window.kakao.maps.Marker({
+        position,
+      });
 
-    document.head.appendChild(script);
-
-    return () => {
-      script.remove();
-    };
+      marker.setMap(map);
+    });
   }, []);
 
-  // 카카오맵 길찾기
   const openKakaoMap = () => {
     const url =
       `https://map.kakao.com/link/search/${encodeURIComponent(
@@ -86,7 +48,6 @@ export default function KakaoMap() {
     );
   };
 
-  // 네이버 지도 길찾기
   const openNaverMap = () => {
     const url =
       `https://map.naver.com/p/search/${encodeURIComponent(
@@ -101,10 +62,9 @@ export default function KakaoMap() {
   };
 
   return (
-    <div className="w-full px-5 py-[60px] bg-[#fffefe]">
+    <section className="w-full bg-[#fffefe] px-5 py-[60px]">
 
-      {/* 장소 정보 */}
-      <div className="text-center mb-6">
+      <div className="mb-6 text-center">
         <h3 className="text-[16px] font-medium tracking-wide text-[#435747]">
           로프트가든344
         </h3>
@@ -114,22 +74,16 @@ export default function KakaoMap() {
         </p>
       </div>
 
-
-      {/* 지도 */}
-      <div className="overflow-hidden border border-[#DDE5D8] rounded-[16px]">
+      <div className="overflow-hidden rounded-[16px] border border-[#DDE5D8]">
         <div
           ref={mapRef}
-          className="w-full h-[260px]"
+          className="h-[260px] w-full"
         />
       </div>
 
-
-      {/* 교통 안내 */}
       <div className="mt-5 border-t border-b border-[#DDE5D8] py-5">
         <div className="flex gap-3">
-          <span className="text-sm">
-            🚇
-          </span>
+          <span className="text-sm">🚇</span>
 
           <div>
             <p className="text-[13px] font-medium text-[#435747]">
@@ -143,26 +97,12 @@ export default function KakaoMap() {
         </div>
       </div>
 
-
-      {/* 길찾기 */}
-      <div className="grid grid-cols-2 gap-2.5 mt-5">
+      <div className="mt-5 grid grid-cols-2 gap-2.5">
 
         <button
           type="button"
           onClick={openKakaoMap}
-          className="
-            h-11
-            border
-            border-[#C9D5C3]
-            rounded-[8px]
-            bg-[#EEF3EA]
-            text-[#435747]
-            text-[12px]
-            tracking-wide
-            transition
-            hover:bg-[#E3EBDD]
-            active:scale-[0.98]
-          "
+          className="h-11 rounded-[8px] border border-[#C9D5C3] bg-[#EEF3EA] text-[12px] tracking-wide text-[#435747] hover:bg-[#E3EBDD]"
         >
           카카오맵 길찾기
         </button>
@@ -170,25 +110,13 @@ export default function KakaoMap() {
         <button
           type="button"
           onClick={openNaverMap}
-          className="
-            h-11
-            border
-            border-[#C9D5C3]
-            rounded-[8px]
-            bg-[#EEF3EA]
-            text-[#435747]
-            text-[12px]
-            tracking-wide
-            transition
-            hover:bg-[#E3EBDD]
-            active:scale-[0.98]
-          "
+          className="h-11 rounded-[8px] border border-[#C9D5C3] bg-[#EEF3EA] text-[12px] tracking-wide text-[#435747] hover:bg-[#E3EBDD]"
         >
           네이버지도 길찾기
         </button>
 
       </div>
 
-    </div>
+    </section>
   );
 }
