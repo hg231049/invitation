@@ -7,46 +7,134 @@
   }
 
   @keyframes gradient-flow {
-    0% { background-position: 200% center; }
-    100% { background-position: 0% center; }
+    0% {
+      background-position: 200% center;
+    }
+
+    100% {
+      background-position: 0% center;
+    }
   }
-} 
+}
+
 @theme {
-  /* 여기서 바로 변수를 등록하면 Tailwind 클래스가 생성됩니다 */
   --color-brand-color: #b53720;
-  --color-sub-color:#fffefe;
+  --color-sub-color: #fffefe;
   --max-width-inner: 1660px;
 }
 
 @layer components {
   .inner {
-    @apply max-w-(--max-width-inner) mx-auto px-[20px] py-10 w-full bg-[var(--color-sub-color)] overflow-hidden box-border;
+    @apply max-w-(--max-width-inner) mx-auto px-[20px] py-10 w-full bg-[var(--color-sub-color)] box-border;
   }
-  
 }
+
+
+/* =========================
+   기본
+========================= */
+
 html,
-body { margin: 0; width: 100%; background: #fcfcfc; }
+body {
+  margin: 0;
+  width: 100%;
+  background: #fcfcfc;
+}
+
 body {
   font-family: 'Figtree', sans-serif;
-  /* 안티앨리어싱(글자를 매끄럽게) 설정도 같이 해주면 좋아요 */
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-   -ms-overflow-style: none; /* IE */
-  scrollbar-width: none; /* Firefox */
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
-.main-title h2{ font-family: 'Figtree', sans-serif; }
-/* 스크롤바 숨기기  */
+
+.main-title h2 {
+  font-family: 'Figtree', sans-serif;
+}
+
+
+/* =========================
+   스크롤바 숨김
+========================= */
+
 html,
 .scroll {
-  -ms-overflow-style: none; /* IE */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
+
 html::-webkit-scrollbar,
 .scroll::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera, Edge */
+  display: none;
 }
 
-#root { max-width: 600px; width: 100%; min-height: 100vh; height: 100%; margin: 0 auto; background: #f8f8f8; box-shadow: rgba(100,100,100,0.3) 0px 0px 29px 0px; }
-section { padding: 60px 20px; background: var(--color-brand-color); }
-.inputBox { padding: 10px 20px; font-size: 16px; border-radius: 5px; background: #f8f8f8; }
 
+/* =========================
+   Root
+========================= */
+
+#root {
+  max-width: 600px;
+  width: 100%;
+
+  min-height: 100vh;
+
+  margin: 0 auto;
+
+  background: #f8f8f8;
+
+  box-shadow:
+    rgba(100, 100, 100, 0.3) 0px 0px 29px 0px;
+}
+
+
+/* =========================
+   Wedding Section
+========================= */
+
+.section {
+  position: relative;
+
+  width: 100%;
+
+  margin: 0 auto;
+  padding: 110px 20px;
+
+  box-sizing: border-box;
+
+  background: #f6f5ef;
+  color: #3f483f;
+}
+
+.section::before {
+  content: "✽";
+
+  position: absolute;
+
+  top: 35px;
+  left: 25px;
+
+  font-size: 25px;
+
+  color: #b8c5af;
+
+  opacity: 0.45;
+}
+
+
+/* =========================
+   Input
+========================= */
+
+.inputBox {
+  padding: 10px 20px;
+
+  font-size: 16px;
+
+  border-radius: 5px;
+
+  background: #f8f8f8;
+}

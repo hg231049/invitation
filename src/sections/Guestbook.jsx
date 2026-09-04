@@ -70,62 +70,152 @@ const Guestbook = () => {
         }
     };
     return (
-        <section>
+        <section className="section">
             <div className="inner">
-               <div className="">
-                    <SectionTitle
-                        subTitle="Day"
-                        title="축하 방명록"
+                <SectionTitle
+                subTitle="Guestbook"
+                title="축하 방명록"
+                />
+
+                <form
+                onSubmit={handleSubmit}
+                className="flex flex-col gap-2"
+                >
+                <div className="
+                    flex gap-2 w-full
+                    [&_input]:w-full
+                    [&_input]:flex-1
+                    [&_input]:p-3
+                    [&_input]:border
+                    [&_input]:border-solid
+                    [&_input]:border-[#DDE5D8]
+                    [&_input]:rounded-[8px]
+                    [&_input]:bg-[#FAFBF7]
+                    [&_input]:outline-none
+                ">
+                    <input
+                    type="text"
+                    placeholder="성함"
+                    value={form.name}
+                    onChange={(e) =>
+                        setForm({
+                        ...form,
+                        name: e.target.value
+                        })
+                    }
                     />
-                    {/* 방명록 작성 폼 */}
-                    <form onSubmit={handleSubmit} className='flex flex-col gap-2'>
-                        <div className='flex gap-2 w-full [&_input]:w-full [&_input]:flex-1 [&_input]:p-2 [&_input]:border [&_input]:border-solid [&_input]:border-[#eee] [&_input]:rounded-[5px]'>
-                            <input 
-                                type="text"
-                                placeholder='성함' 
-                                value={form.name}
-                                onChange={(e) => setForm({ ...form, name: e.target.value })}
-                            />
-                            <input 
-                                type="password" 
-                                placeholder='비밀번호(4자리)'
-                                maxLength={4}
-                                value={form.password}
-                                onChange={(e) => setForm({ ...form, password: e.target.value })}
-                            />
-                        </div>
-                        <textarea 
-                            placeholder='축하의 한마디를 남겨주세요' className='p-2 border border-solid border-[#eee] rounded-[5px]'
-                            rows={3}
-                            value={form.message}
-                            onChange={(e) => setForm({ ...form, message: e.target.value })}
-                        />
-                        <button type="submit" disabled={loading} className='p-2 text-white bg-[var(--color-brand-color)] rounded-[5px]'>{loading ? '등록 중...' : '축하글 남기기'}</button>
-                    </form>
-                    {/* 방명록 피드 리스트 */}
-                    <div className='flex flex-col gap-3 mt-5'>
-                        {messages.map((item) => (
-                            <div key={item.id} className='relative p-3 rounded bg-[#f8f9fa]'>
-                                <div className='flex justify-between mb-[6px]'>
-                                <strong>{item.name}</strong>
-                                <button
-                                    onClick={() => handleDelete(item.id, item.password)}
-                                    className='text-[#999] text-[0.8rem] border-0 bg-transparent cursor-pointer'
-                                >
-                                    삭제
-                                </button>
-                                </div>
-                                <p className='m-0 text-[0.9rem] text-[#444] whitespace-pre-wrap'>{item.message}</p>
-                                <span className='block mt-[6px] text-[0.75rem] text-[#aaa]'>
-                                {new Date(item.created_at).toLocaleDateString()}
-                                </span>
-                            </div>
-                        ))}
+
+                    <input
+                    type="password"
+                    placeholder="비밀번호(4자리)"
+                    maxLength={4}
+                    value={form.password}
+                    onChange={(e) =>
+                        setForm({
+                        ...form,
+                        password: e.target.value
+                        })
+                    }
+                    />
+                </div>
+
+                <textarea
+                    placeholder="축하의 한마디를 남겨주세요"
+                    rows={3}
+                    value={form.message}
+                    onChange={(e) =>
+                    setForm({
+                        ...form,
+                        message: e.target.value
+                    })
+                    }
+                    className="
+                    p-3
+                    border
+                    border-solid
+                    border-[#DDE5D8]
+                    rounded-[8px]
+                    bg-[#FAFBF7]
+                    outline-none
+                    resize-none
+                    "
+                />
+
+                <button
+                    type="submit"
+                    disabled={loading}
+                    className="
+                    p-3
+                    rounded-[8px]
+                    border-0
+                    bg-[#435747]
+                    text-white
+                    text-[13px]
+                    cursor-pointer
+                    "
+                >
+                    {loading ? '등록 중...' : '축하글 남기기'}
+                </button>
+                </form>
+
+                <div className="flex flex-col gap-3 mt-6">
+                {messages.map((item) => (
+                    <div
+                    key={item.id}
+                    className="
+                        relative
+                        p-4
+                        rounded-[16px]
+                        bg-[#FAFBF7]
+                        border
+                        border-[#E2E8DE]
+                    "
+                    >
+                    <div className="flex justify-between mb-2">
+                        <strong className="text-[14px] text-[#435747]">
+                        {item.name}
+                        </strong>
+
+                        <button
+                        onClick={() =>
+                            handleDelete(item.id, item.password)
+                        }
+                        className="
+                            text-[#9AA49A]
+                            text-[11px]
+                            border-0
+                            bg-transparent
+                            cursor-pointer
+                        "
+                        >
+                        삭제
+                        </button>
                     </div>
 
-               </div>
+                    <p className="
+                        m-0
+                        text-[13px]
+                        leading-[1.7]
+                        text-[#596359]
+                        whitespace-pre-wrap
+                    ">
+                        {item.message}
+                    </p>
+
+                    <span className="
+                        block
+                        mt-2
+                        text-[10px]
+                        text-[#A2AAA1]
+                    ">
+                        {new Date(item.created_at).toLocaleDateString()}
+                    </span>
+                    </div>
+                ))}
+                </div>
+
             </div>
-        </section>
+            </section>
     )
 }
 

@@ -1,41 +1,57 @@
 import './App.css'
-import { useState,useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import Home from './sections/Home'
-import Gallery from './sections/Gallery'
 import Day from './sections/Day'
 import Account from './sections/Account'
 import Info from './sections/Info'
 import Guestbook from './sections/Guestbook'
 
 function App() {
+  const [isDark, setIsDark] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  // 1. 다크모드
-  const [isDark,setIsDark] = useState(false);
+  useEffect(() => {
+    const hour = new Date().getHours();
 
-  useEffect(()=>{
-     // 다크모드 시간 설정 (낮:오전6시~,밤:오후6시~)
-     const checkTime = () => {
-       const hour = new Date().getHours();
-       if(hour >= 18 || hour < 6){
-        setIsDark(true);
-       }else {
-        setIsDark(false);
-       }
-     }
-     checkTime();
-  },[])
+    if (hour >= 18 || hour < 6) {
+      setIsDark(true);
+    } else {
+      setIsDark(false);
+    }
+  }, []);
+
+  // 오프닝이 열리기 전에는 스크롤 잠금
+  useEffect(() => {
+    if (!isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    // 컴포넌트가 사라질 때 원상복구
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
 
   return (
-    <>
-    <main className={`${isDark ? 'bg-slate-700' : 'bg-[var(--color-brand-color)]'} h-[100vh]`}>
-      
-      
-      <Day/>
-      <Account/>
-      <Info/>
-      <Guestbook/>
+    <main
+      className={
+        isDark
+          ? 'bg-[#26372B]'
+          : 'bg-[#F6F5EF]'
+      }
+    >
+      <Home
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+      />
+
+      <Day />
+      <Account />
+      <Info />
+      <Guestbook />
     </main>
-    </>
   )
 }
 

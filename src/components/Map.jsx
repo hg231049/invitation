@@ -71,21 +71,7 @@ export default function KakaoMap() {
   };
 
   return (
-    <div className="w-full px-5 py-[60px] bg-[#fffefe]">
-
-      {/* 타이틀 */}
-      <div className="text-center mb-8">
-        <p className="text-[11px] tracking-[0.3em] text-[#b53720] mb-3">
-          LOCATION
-        </p>
-
-        <h2 className="text-[22px] font-normal tracking-[0.08em] text-[#333]">
-          오시는 길
-        </h2>
-
-        <div className="w-6 h-px bg-[#b53720] mx-auto mt-5 opacity-50" />
-      </div>
-
+    <div className="w-full px-5 pㅠ-[60px] bg-[#fffefe]">
 
       {/* 장소 정보 */}
       <div className="text-center mb-6">

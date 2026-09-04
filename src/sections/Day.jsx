@@ -8,14 +8,14 @@ const Day = () => {
     const INVITATION_TIME = '2026-10-24T13:00:00';
 
     return (
-        <section className=''>
+        <section className='wedding-section day-section'>
             <div className="inner">
                 <SectionTitle
                     subTitle="Day"
                     title="오시는 날"
                 />
                 <div className="invitation-container w-full">
-                    <h3 className='relative mb-10 font-bold text-center'>{dayjs(INVITATION_TIME).format('YYYY년 MM월 DD일 dddd A h시')}</h3>
+                    <h3 className='relative mb-10 font-500 text-center'>{dayjs(INVITATION_TIME).format('YYYY년 MM월 DD일 dddd A h시')}</h3>
                     <InvitationCalender/>
                     <Timer INVITATION_TIME={INVITATION_TIME}/>
                 </div>
