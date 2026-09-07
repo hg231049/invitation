@@ -1,0 +1,483 @@
+/* =====================================================
+   Gallery Section
+===================================================== */
+
+.gallery-section {
+    padding: 100px 0;
+    background: #f6f5ef;
+}
+
+
+/* =====================================================
+   Gallery Preview
+===================================================== */
+
+.gallery-preview {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 35px 14px;
+
+    width: 100%;
+    max-width: 390px;
+
+    margin: 65px auto 0;
+}
+
+
+/* =====================================================
+   Gallery Photo Common
+===================================================== */
+
+.gallery-photo {
+    display: block;
+
+    width: 100%;
+    padding: 0;
+
+    border: 0;
+    background: none;
+
+    cursor: pointer;
+    text-align: left;
+}
+
+
+/* 이미지 */
+
+.gallery-photo img {
+    display: block;
+
+    width: 100%;
+    aspect-ratio: 1 / 1.15;
+
+    object-fit: cover;
+
+    border-radius: 2px;
+
+    transition:
+        transform .6s cubic-bezier(.22, .8, .2, 1),
+        filter .5s ease;
+}
+
+
+/* Hover */
+
+.gallery-photo:hover img {
+    transform: scale(.97);
+
+    filter: brightness(.92);
+}
+
+
+/* 사진 번호 */
+
+.gallery-photo span {
+    display: block;
+
+    margin-top: 8px;
+
+    color: #899689;
+
+    font-family: serif;
+
+    font-size: 9px;
+
+    font-weight: 400;
+
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   Photo 01
+   큰 이미지
+===================================================== */
+
+.gallery-photo--01 {
+    grid-column: 1 / 3;
+
+    width: 88%;
+
+    justify-self: start;
+}
+
+
+/* =====================================================
+   Photo 02
+===================================================== */
+
+.gallery-photo--02 {
+    grid-column: 1;
+
+    width: 92%;
+}
+
+
+/* =====================================================
+   Photo 03
+===================================================== */
+
+.gallery-photo--03 {
+    grid-column: 2;
+
+    width: 88%;
+
+    margin-top: 35px;
+}
+
+
+/* =====================================================
+   Photo 04
+   큰 이미지
+===================================================== */
+
+.gallery-photo--04 {
+    grid-column: 1 / 3;
+
+    width: 72%;
+
+    justify-self: end;
+
+    margin-top: 15px;
+}
+
+
+/* =====================================================
+   Photo 05
+===================================================== */
+
+.gallery-photo--05 {
+    grid-column: 1;
+
+    width: 88%;
+}
+
+
+/* =====================================================
+   Photo 06
+===================================================== */
+
+.gallery-photo--06 {
+    grid-column: 2;
+
+    width: 92%;
+
+    margin-top: 35px;
+}
+
+
+/* =====================================================
+   Photo 07
+===================================================== */
+
+.gallery-photo--07 {
+    grid-column: 1 / 3;
+
+    width: 82%;
+
+    justify-self: center;
+
+    margin-top: 15px;
+}
+
+
+/* =====================================================
+   View All
+===================================================== */
+
+.gallery-view-all {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    width: 100%;
+    max-width: 390px;
+
+    margin: 65px auto 0;
+
+    padding: 15px 0;
+
+    border: 0;
+
+    border-top: 1px solid #d6ddd2;
+    border-bottom: 1px solid #d6ddd2;
+
+    background: none;
+
+    color: #435747;
+
+    cursor: pointer;
+
+    font-family: serif;
+
+    font-size: 9px;
+
+    font-weight: 400;
+
+    letter-spacing: 3px;
+
+    transition:
+        color .3s ease,
+        border-color .3s ease;
+}
+
+
+.gallery-view-all:hover {
+    color: #778b6f;
+
+    border-color: #a8b8a0;
+}
+
+
+.gallery-view-all em {
+    color: #a8b8a0;
+
+    font-style: normal;
+}
+
+
+/* =====================================================
+   Gallery Modal
+===================================================== */
+
+.gallery-modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(38, 55, 43, .97);
+}
+
+
+/* =====================================================
+   Modal Content
+===================================================== */
+
+.gallery-modal-content {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 100%;
+}
+
+
+/* Modal Image */
+
+.gallery-modal-content img {
+    display: block;
+
+    max-width: 82vw;
+
+    max-height: 78vh;
+
+    object-fit: contain;
+}
+
+
+/* =====================================================
+   Counter
+===================================================== */
+
+.gallery-counter {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 22px;
+
+    color: #dfe6da;
+
+    font-family: serif;
+
+    font-size: 10px;
+
+    font-weight: 400;
+
+    letter-spacing: 3px;
+}
+
+
+.gallery-counter i {
+    color: #7f8d80;
+
+    font-style: normal;
+}
+
+
+/* =====================================================
+   Close Button
+===================================================== */
+
+.gallery-modal-close {
+    position: absolute;
+
+    top: 25px;
+    right: 25px;
+
+    width: 40px;
+    height: 40px;
+
+    padding: 0;
+
+    border: 0;
+
+    background: none;
+
+    color: #fff;
+
+    cursor: pointer;
+
+    font-size: 30px;
+
+    font-weight: 200;
+
+    line-height: 40px;
+}
+
+
+/* =====================================================
+   Arrow
+===================================================== */
+
+.gallery-arrow {
+    position: absolute;
+
+    top: 50%;
+
+    width: 50px;
+    height: 50px;
+
+    padding: 0;
+
+    border: 0;
+
+    background: none;
+
+    color: #fff;
+
+    cursor: pointer;
+
+    font-family: serif;
+
+    font-size: 20px;
+
+    font-weight: 300;
+}
+
+
+.gallery-arrow--prev {
+    left: 20px;
+}
+
+
+.gallery-arrow--next {
+    right: 20px;
+}
+
+
+/* =====================================================
+   Mobile
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .gallery-section {
+        padding: 80px 0;
+    }
+
+
+    .gallery-preview {
+        gap: 28px 12px;
+
+        margin-top: 55px;
+    }
+
+
+    /* 03 */
+
+    .gallery-photo--03 {
+        margin-top: 25px;
+    }
+
+
+    /* 04 */
+
+    .gallery-photo--04 {
+        margin-top: 10px;
+    }
+
+
+    /* 06 */
+
+    .gallery-photo--06 {
+        margin-top: 25px;
+    }
+
+
+    /* 07 */
+
+    .gallery-photo--07 {
+        margin-top: 10px;
+    }
+
+
+    /* View All */
+
+    .gallery-view-all {
+        margin-top: 55px;
+    }
+
+
+    /* Modal */
+
+    .gallery-modal-content img {
+        max-width: 88vw;
+
+        max-height: 75vh;
+    }
+
+
+    /* 모바일에서는 아래쪽에 화살표 */
+
+    .gallery-arrow {
+        top: auto;
+
+        bottom: 30px;
+    }
+
+
+    .gallery-arrow--prev {
+        left: 25%;
+    }
+
+
+    .gallery-arrow--next {
+        right: 25%;
+    }
+
+
+    .gallery-modal-close {
+        top: 18px;
+
+        right: 18px;
+    }
+}

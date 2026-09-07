@@ -165,7 +165,7 @@ const Guestbook = () => {
                     className="
                         relative
                         p-4
-                        rounded-[16px]
+                        rounded-[8px]
                         bg-[#FAFBF7]
                         border
                         border-[#E2E8DE]

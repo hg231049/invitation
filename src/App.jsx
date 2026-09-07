@@ -1,6 +1,7 @@
 import './App.css'
 import { useState, useEffect } from 'react'
 import Home from './sections/Home'
+import Gallery from './sections/Gallery'
 import Day from './sections/Day'
 import Account from './sections/Account'
 import Info from './sections/Info'
@@ -8,7 +9,12 @@ import Guestbook from './sections/Guestbook'
 
 function App() {
   const [isDark, setIsDark] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(() => {
+    return sessionStorage.getItem('wedding-open') === 'true';
+  });
+  useEffect(() => {
+    sessionStorage.setItem('wedding-open', isOpen);
+  }, [isOpen]);
 
   useEffect(() => {
     const hour = new Date().getHours();
@@ -46,7 +52,7 @@ function App() {
         isOpen={isOpen}
         setIsOpen={setIsOpen}
       />
-
+      <Gallery/>
       <Day />
       <Account />
       <Info />

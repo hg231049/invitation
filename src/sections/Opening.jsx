@@ -1,12 +1,9 @@
 const Opening = () => {
     return(
         <>
-        <section className={`opening `}>
+        <section>
         
-                    <div
-                        className="book"
-                        
-                    >
+                    <div className="book">
                         {/* 닫혀있는 표지 */}
                         <div className="cover">
         

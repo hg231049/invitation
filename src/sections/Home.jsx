@@ -3,93 +3,147 @@ import openingImage from '../assets/opening.jpeg';
 import { motion } from 'framer-motion';
 
 const Home = ({ isOpen, setIsOpen }) => {
+
+  const handleOpen = () => {
+    if (isOpen) return;
+
+    setIsOpen(true);
+  };
+
   return (
     <section className={`opening ${isOpen ? 'is-open' : ''}`}>
 
       <div
         className="book"
-        onClick={() => setIsOpen(true)}
+        onClick={handleOpen}
       >
 
-        {/* 열리고 난 뒤 보이는 이미지 */}
+        {/* =====================================
+            펼쳐진 뒤 보이는 페이지
+        ====================================== */}
         <div className="inside-page">
 
           <img
             src={openingImage}
-            alt="배경 사진"
+            alt="웨딩 사진"
           />
 
+          {/* 사진 위 어두운 오버레이 */}
+          <div className="inside-overlay" />
+
+
+          {/* =================================
+              OPEN 이후 텍스트
+          ================================== */}
           <div className="inside-content">
 
+
+            {/* OUR */}
             <motion.span
-              initial={{ opacity: 0, y: 20 }}
+              className="our"
+              initial={{
+                opacity: 0,
+                y: 25,
+              }}
               animate={
                 isOpen
-                  ? { opacity: 1, y: 0 }
-                  : { opacity: 0, y: 20 }
+                  ? {
+                      opacity: 1,
+                      y: 0,
+                    }
+                  : {
+                      opacity: 0,
+                      y: 25,
+                    }
               }
               transition={{
-                delay: 0.5,
-                type: 'spring',
-                stiffness: 180,
-                damping: 12
+                delay: 1.95,
+                duration: 0.6,
+                ease: [0.22, 1, 0.36, 1],
               }}
             >
               OUR
             </motion.span>
 
+
+            {/* =================================
+                Welcome
+                To The
+                Show
+            ================================== */}
+
             <motion.h1
-            className="font-pf"
-            initial="hidden"
-            animate={isOpen ? "visible" : "hidden"}
-            variants={{
+              className="font-pf"
+              initial="hidden"
+              animate={isOpen ? 'visible' : 'hidden'}
+              variants={{
                 hidden: {},
+
                 visible: {
-                transition: {
-                    staggerChildren: 0.16,
+                  transition: {
+                    delayChildren: 2.05,
+                    staggerChildren: 0.2,
+                  },
                 },
-                },
-            }}
+              }}
             >
-            {["Welcome", "To The", "Show"].map((text) => (
+
+              {['Welcome', 'To The', 'Show'].map((text) => (
+
                 <motion.span
-                key={text}
-                className="block"
-                variants={{
+                  key={text}
+                  className="title-line"
+
+                  variants={{
                     hidden: {
-                    opacity: 0,
-                    y: 45,
-                    scale: 0.9,
+                      opacity: 0,
+                      y: 55,
+                      scale: 0.88,
                     },
+
                     visible: {
-                    opacity: 1,
-                    y: 0,
-                    scale: 1,
-                    transition: {
-                        type: "spring",
-                        stiffness: 140,
-                        damping: 12,
+                      opacity: 1,
+                      y: 0,
+                      scale: 1,
+
+                      transition: {
+                        type: 'spring',
+                        stiffness: 180,
+                        damping: 10,
+                        mass: 0.8,
+                      },
                     },
-                    },
-                }}
+                  }}
                 >
-                {text}
+                  {text}
                 </motion.span>
-            ))}
+
+              ))}
+
             </motion.h1>
 
+
+            {/* 날짜 */}
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{
+                opacity: 0,
+                y: 20,
+              }}
               animate={
                 isOpen
-                  ? { opacity: 1, y: 0 }
-                  : { opacity: 0, y: 20 }
+                  ? {
+                      opacity: 1,
+                      y: 0,
+                    }
+                  : {
+                      opacity: 0,
+                      y: 20,
+                    }
               }
               transition={{
-                delay: 0.85,
-                type: 'spring',
-                stiffness: 180,
-                damping: 14
+                delay: 2.8,
+                duration: 0.6,
+                ease: [0.22, 1, 0.36, 1],
               }}
             >
               2026. 10. 24 SAT
@@ -99,19 +153,35 @@ const Home = ({ isOpen, setIsOpen }) => {
         </div>
 
 
-        {/* 닫혀있는 표지 */}
+        {/* =====================================
+            청첩장 표지
+        ====================================== */}
         <div className="cover">
 
-          <div className="cover-content">
-            <span>WEDDING</span>
+          <div className="cover-paper">
 
-            <h1>
-              INVITATION
-            </h1>
 
-            <p>
-              EUNSEO & GUNGU
-            </p>
+            {/* 표지 텍스트 */}
+            <div className="cover-content">
+
+              <span>
+                WEDDING
+              </span>
+
+              <h1>
+                INVITATION
+              </h1>
+
+              <p>
+                EUNSEO & GUNGU
+              </p>
+
+            </div>
+
+
+            {/* 오른쪽 페이지 끝부분 */}
+            <div className="paper-edge" />
+
           </div>
 
         </div>
@@ -119,7 +189,12 @@ const Home = ({ isOpen, setIsOpen }) => {
       </div>
 
 
-      <div className={`open-guide ${isOpen ? 'hidden' : ''}`}>
+      {/* =====================================
+          OPEN 안내
+      ====================================== */}
+      <div
+        className={`open-guide ${isOpen ? 'hidden' : ''}`}
+      >
         <span>OPEN</span>
       </div>
 

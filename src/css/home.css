@@ -1,225 +1,71 @@
-
-/* ======================================
+/* ==================================================
    OPENING
-====================================== */
-section { padding: 0; }
-.opening {
-    position: relative;
-    width: 100%;
-    height: 100dvh;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    perspective: 2000px;
-}
+================================================== */
 
-
-/* ======================================
-   BOOK
-====================================== */
-
-.book {
-    position: relative;
-
-    width: 100vw;
-    height: 100dvh;
-
-    transform-style: preserve-3d;
-
-    cursor: pointer;
-
-    perspective: 2000px;
-}
-
-
-/* ======================================
-   안쪽 페이지
-====================================== */
-
-.inside-page {
-    position: absolute;
-
-    inset: 0;
-
-    overflow: hidden;
-
-    background: linear-gradient(
-            180deg,
-            rgba(47, 69, 52, 0.02),
-            rgba(47, 69, 52, 0.35)
-        );
-pointer-events: none;
-    z-index: 1;
-}
-
-
-/* 사진 */
-
-.inside-page img {
-    width: 100%;
-    height: 100%;
-
-    display: block;
-
-    object-fit: cover;
-
-    transform: scale(1.12);
-
-    transition:
-        transform 1.8s cubic-bezier(.2, .8, .2, 1);
-}
-
-
-/* ======================================
-   안쪽 텍스트
-====================================== */
-
-.inside-content {
-    position: absolute;
-    z-index: 2;
-    left: 0;
-    right: 0;
-    bottom: 17%;
-    text-align: center;
-    color: #fad156;
-    text-shadow:
-  0 2px 6px rgba(0, 0, 0, 0.35);
-    /*transform: translateY(-50%);*/
-}
-
-.inside-content span {
-    display: block;
-
-    margin-bottom: 18px;
-
-    font-family: serif;
-
-    
-
-    letter-spacing: 5px;
-}
-
-.inside-content h1 {
-    margin: 0 0 14px;
-    font-size: clamp(32px, 9vw, 52px);
-
-    font-weight: 700;
-
-    letter-spacing: -1px;
-}
-
-.inside-content p {
-    margin: 0;
-
-    font-size: 11px;
-
-    letter-spacing: 3px;
-}
-
-
-/* ======================================
-   표지 디자인
-====================================== */
-
-.cover-content {
-    position: absolute;
-
-    inset: 0;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-    align-items: center;
-
-    text-align: center;
-
-    color: #435747;
-
-    backface-visibility: hidden;
-}
-.cover-content h1 {
-    font-family: serif;
-    font-weight: 400;
-    letter-spacing: 2px;
-}
-.cover-content span {
-    margin-bottom: 25px;
-
-    font-family: serif;
-
-    font-size: 10px;
-
-    letter-spacing: 6px;
-}
-
-.cover-content h1 {
-    margin: 0;
-
-    font-family: serif;
-
-    font-size: clamp(34px, 10vw, 60px);
-
-    font-weight: 400;
-
-    letter-spacing: 1px;
-}
-
-.cover-content p {
-    margin-top: 25px;
-
-    font-size: 9px;
-
-    letter-spacing: 4px;
-
-    color: #8b7d70;
-}
-
-
-
-/* ======================================
-   OPEN
-====================================== */
 .opening {
   position: relative;
+
   width: 100%;
   height: 100dvh;
   min-height: 600px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   overflow: hidden;
 
   background: #f6f5ef;
+
+  /*
+    3D 공간의 깊이
+  */
   perspective: 1800px;
+  perspective-origin: 50% 50%;
 }
+
+
+/* ==================================================
+   BOOK
+================================================== */
 
 .book {
   position: relative;
+
   width: 100%;
   height: 100%;
 
   transform-style: preserve-3d;
+
   cursor: pointer;
 }
 
-/* 안쪽 페이지 */
+
+/* ==================================================
+   펼쳐진 뒤 보이는 사진
+================================================== */
+
 .inside-page {
   position: absolute;
+
   inset: 0;
 
   z-index: 1;
+
+  width: 100%;
+  height: 100%;
 
   overflow: hidden;
 
   background: #faf9f3;
 }
 
+
+/* ==================================================
+   배경 사진
+================================================== */
+
 .inside-page img {
+  position: absolute;
+
+  inset: 0;
+
   width: 100%;
   height: 100%;
 
@@ -227,131 +73,506 @@ pointer-events: none;
 
   object-fit: cover;
 
+  /*
+    처음에는 살짝 확대
+  */
   transform: scale(1.08);
 
   transition:
-    transform 1.8s cubic-bezier(.2, .8, .2, 1);
-}
-
-/* 안쪽 이미지 위 자연스러운 밝기 */
-.inside-page::after {
-  content: '';
-
-  position: absolute;
-  inset: 0;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(250, 249, 243, 0.15),
-      transparent 40%,
-      rgba(67, 87, 71, 0.08)
-    );
-
-  pointer-events: none;
+    transform 2.2s
+    cubic-bezier(.22, .8, .2, 1);
 }
 
 
-/* 책 표지 */
-.cover {
-  position: absolute;
-  inset: 0;
-
-  z-index: 5;
-
-  transform-origin: right center;
-  transform-style: preserve-3d;
-
-  background:
-    linear-gradient(
-      135deg,
-      #f5f1e9 0%,
-      #e9e3d7 45%,
-      #d9dfd3 100%
-    );
-
-  box-shadow:
-    8px 0 25px rgba(55, 70, 55, 0.15),
-    20px 0 60px rgba(55, 70, 55, 0.12);
-
-  transition:
-    transform 1.5s cubic-bezier(.18, .8, .2, 1);
-
-  overflow: hidden;
-}
-
-
-/* 종이 질감 */
-.cover::before {
-  content: '';
-
-  position: absolute;
-  inset: 0;
-
-  opacity: 0.35;
-
-  background:
-    radial-gradient(
-      circle at 20% 30%,
-      rgba(255,255,255,.5) 0 1px,
-      transparent 1px
-    ),
-    radial-gradient(
-      circle at 70% 70%,
-      rgba(80,90,75,.08) 0 1px,
-      transparent 1px
-    );
-
-  background-size:
-    5px 5px,
-    7px 7px;
-
-  pointer-events: none;
-}
-
-
-/* OPEN 상태 */
-.opening.is-open .cover {
-  transform:
-    rotateY(-135deg)
-    rotateZ(-1deg);
-}
+/*
+  페이지가 열리면서 사진도 천천히 줌아웃
+*/
 
 .opening.is-open .inside-page img {
   transform: scale(1);
 }
 
 
-/* OPEN 안내 */
-.open-guide {
+/* ==================================================
+   사진 오버레이
+================================================== */
+
+.inside-overlay {
   position: absolute;
+
+  inset: 0;
+
+  z-index: 2;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.08) 0%,
+      rgba(255,255,255,0) 38%,
+      rgba(30,45,35,0.18) 100%
+    );
+}
+
+
+/* ==================================================
+   INSIDE CONTENT
+================================================== */
+
+.inside-content {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  bottom: 17%;
+
+  z-index: 5;
+
+  text-align: center;
+
+  color: #fad156;
+
+  text-shadow:
+    0 2px 7px rgba(0,0,0,.35);
+}
+
+
+/* ==================================================
+   OUR
+================================================== */
+
+.inside-content .our {
+  display: block;
+
+  margin-bottom: 18px;
+
+  font-family: serif;
+
+  font-size: 12px;
+
+  font-weight: 400;
+
+  letter-spacing: 7px;
+}
+
+
+/* ==================================================
+   TITLE
+================================================== */
+
+.inside-content h1 {
+  margin: 0 0 18px;
+
+  font-size: clamp(
+    38px,
+    10vw,
+    58px
+  );
+
+  font-weight: 700;
+
+  line-height: 1.02;
+
+  letter-spacing: -1px;
+}
+
+.title-line {
+  display: block;
+
+  will-change:
+    transform,
+    opacity;
+}
+
+
+/* ==================================================
+   DATE
+================================================== */
+
+.inside-content p {
+  margin: 0;
+
+  font-family: serif;
+
+  font-size: 11px;
+
+  font-weight: 400;
+
+  letter-spacing: 4px;
+}
+
+
+/* ==================================================
+   COVER
+================================================== */
+
+.cover {
+  position: absolute;
+
+  inset: 0;
 
   z-index: 10;
 
-  bottom: 50px;
-  left: 50%;
+  transform-origin: left center;
 
-  transform: translateX(-50%);
+  transform-style: preserve-3d;
+
+  /*
+    표지
+  */
+
+  background:
+    linear-gradient(
+      135deg,
+      #f8f4ec 0%,
+      #f0ebe2 42%,
+      #dfe6da 100%
+    );
+
+  /*
+    종이 그림자
+  */
+
+  box-shadow:
+    -8px 0 20px rgba(45,60,48,.08),
+    15px 0 50px rgba(45,60,48,.12);
+
+  /*
+    ★ 페이지 넘김 속도
+  */
+
+  transition:
+    transform
+    2s
+    cubic-bezier(
+      .22,
+      .72,
+      .18,
+      1
+    );
+
+  overflow: hidden;
+
+  /*
+    뒷면 숨김
+  */
+
+  backface-visibility: hidden;
+
+  -webkit-backface-visibility: hidden;
+
+  will-change: transform;
+}
+
+
+/* ==================================================
+   COVER PAPER
+================================================== */
+
+.cover-paper {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  transform-style: preserve-3d;
+
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(255,255,255,.65),
+      transparent 32%
+    ),
+    linear-gradient(
+      135deg,
+      #f8f4ec 0%,
+      #eee9df 50%,
+      #e3e8df 100%
+    );
+}
+
+
+/* ==================================================
+   종이 질감
+================================================== */
+
+.cover-paper::before {
+  content: '';
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  opacity: .4;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 20% 30%,
+      rgba(255,255,255,.8) 0 1px,
+      transparent 1.5px
+    ),
+    radial-gradient(
+      circle at 70% 70%,
+      rgba(80,90,75,.08) 0 1px,
+      transparent 1.5px
+    );
+
+  background-size:
+    5px 5px,
+    7px 7px;
+}
+
+
+/* ==================================================
+   종이 가장자리
+================================================== */
+
+.paper-edge {
+  position: absolute;
+
+  top: 0;
+  right: 0;
+
+  width: 18px;
+  height: 100%;
+
+  z-index: 4;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,0),
+      rgba(70,80,70,.13)
+    );
+}
+
+
+/* ==================================================
+   COVER CONTENT
+================================================== */
+
+.cover-content {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 3;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  color: #435747;
+}
+
+
+/* ==================================================
+   WEDDING
+================================================== */
+
+.cover-content span {
+  margin-bottom: 25px;
+
+  font-family: serif;
+
+  font-size: 10px;
+
+  font-weight: 400;
+
+  letter-spacing: 7px;
+}
+
+
+/* ==================================================
+   INVITATION
+================================================== */
+
+.cover-content h1 {
+  margin: 0;
+
+  font-family: serif;
+
+  font-size: clamp(
+    36px,
+    10vw,
+    62px
+  );
+
+  font-weight: 400;
+
+  letter-spacing: 2px;
+}
+
+.cover-content p {
+  margin-top: 26px;
+
+  font-size: 9px;
+
+  font-weight: 400;
+
+  letter-spacing: 5px;
+
+  color: #8b7d70;
+}
+
+
+/* ==================================================
+   ★★★★★★★★★★★★★★★★★★★★★★
+   PAGE TURN
+   ★★★★★★★★★★★★★★★★★★★★★★
+================================================== */
+
+.opening.is-open .cover {
+
+
+  transform:
+    rotateY(-179deg);
+
+  box-shadow:
+    0 0 10px rgba(45,60,48,.03);
+}
+
+
+/* ==================================================
+   OPEN GUIDE
+================================================== */
+
+.open-guide {
+  position: absolute;
+
+  left: 50%;
+  bottom: 48px;
+
+  z-index: 30;
 
   color: #435747;
 
   font-size: 10px;
-  letter-spacing: 4px;
+
+  font-weight: 400;
+
+  letter-spacing: 5px;
 
   pointer-events: none;
 
-  animation: openGuide 1.8s ease-in-out infinite;
+  transform:
+    translateX(-50%);
+
+  animation:
+    openGuide
+    1.8s
+    ease-in-out
+    infinite;
+
+  transition:
+    opacity .4s ease;
 }
 
+
+/* ==================================================
+   OPEN GUIDE HIDDEN
+================================================== */
+
+.open-guide.hidden {
+  opacity: 0;
+
+  animation: none;
+}
+
+
+/* ==================================================
+   OPEN GUIDE MOTION
+================================================== */
+
 @keyframes openGuide {
+
   0%,
   100% {
-    opacity: .4;
-    transform: translateX(-50%) translateY(0);
+
+    opacity: .35;
+
+    transform:
+      translateX(-50%)
+      translateY(0);
   }
 
   50% {
+
     opacity: 1;
-    transform: translateX(-50%) translateY(-5px);
+
+    transform:
+      translateX(-50%)
+      translateY(-6px);
   }
+
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 768px) {
+
+  .opening {
+    perspective: 1200px;
+  }
+
+
+  .inside-content {
+    bottom: 16%;
+  }
+
+
+  .inside-content .our {
+    font-size: 10px;
+
+    letter-spacing: 6px;
+
+    margin-bottom: 15px;
+  }
+
+
+  .inside-content h1 {
+    font-size: clamp(
+      36px,
+      11vw,
+      52px
+    );
+
+    line-height: 1.04;
+  }
+
+
+  .inside-content p {
+    font-size: 9px;
+
+    letter-spacing: 3px;
+  }
+
+
+  .cover-content h1 {
+    font-size: clamp(
+      34px,
+      11vw,
+      55px
+    );
+  }
+
 }
