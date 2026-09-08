@@ -38,29 +38,29 @@ const Gallery = () => {
     };
 
     const touchStartX = useRef(0);
-const touchEndX = useRef(0);
+    const touchEndX = useRef(0);
 
-const handleTouchStart = (e) => {
-    touchStartX.current = e.touches[0].clientX;
-};
+    const handleTouchStart = (e) => {
+        touchStartX.current = e.touches[0].clientX;
+    };
 
-const handleTouchEnd = (e) => {
-    touchEndX.current = e.changedTouches[0].clientX;
+    const handleTouchEnd = (e) => {
+        touchEndX.current = e.changedTouches[0].clientX;
 
-    const distance =
-        touchStartX.current - touchEndX.current;
+        const distance =
+            touchStartX.current - touchEndX.current;
 
-    // 50px 이상 움직였을 때만 스와이프
-    if (Math.abs(distance) < 50) return;
+        // 50px 이상 움직였을 때만 스와이프
+        if (Math.abs(distance) < 50) return;
 
-    if (distance > 0) {
-        // 왼쪽으로 스와이프 → 다음
-        nextImage();
-    } else {
-        // 오른쪽으로 스와이프 → 이전
-        prevImage();
-    }
-};
+        if (distance > 0) {
+            // 왼쪽으로 스와이프 → 다음
+            nextImage();
+        } else {
+            // 오른쪽으로 스와이프 → 이전
+            prevImage();
+        }
+    };
 
 
     // 갤러리 닫기
