@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState,useRef } from 'react';
 import SectionTitle from "../components/SectionTitle";
 import '../css/gallery.css';
 
@@ -9,30 +9,27 @@ const Gallery = () => {
 
     const images = [
         '/images/opening.jpeg',
-        '/images/opening.jpeg',
-        '/images/opening.jpeg',
-        '/images/opening.jpeg',
-        '/images/opening.jpeg',
-        '/images/opening.jpeg',
-        '/images/opening.jpeg',
-        '/images/opening.jpeg',
-        '/images/opening.jpeg',
-        '/images/opening.jpeg',
-        '/images/opening.jpeg',
-        '/images/opening.jpeg',
-        '/images/opening.jpeg',
-        '/images/opening.jpeg',
-        '/images/opening.jpeg',
-        '/images/opening.jpeg',
-        '/images/opening.jpeg',
-        '/images/opening.jpeg',
+        '/images/gallery2.jpg',
+        '/images/gallery3.jpg',
+        '/images/gallery4.jpg',
+        '/images/gallery5.gif',
+        '/images/gallery6.jpg',
+        '/images/gallery7.png',
+        '/images/gallery8.jpg',
+        '/images/gallery9.jpg',
+        '/images/gallery10.jpg',
+        '/images/gallery11.jpg',
+        '/images/gallery12.jpg',
+        '/images/gallery13.jpg',
+        '/images/gallery14.jpg',
+        '/images/gallery15.jpg',
+        '/images/gallery16.jpg',
+        '/images/gallery17.jpg',
+        '/images/gallery18.jpg',
     ];
 
 
-    // =========================
     // 갤러리 열기
-    // =========================
-
     const openGallery = (index) => {
         setCurrentIndex(index);
         setIsGalleryOpen(true);
@@ -40,11 +37,33 @@ const Gallery = () => {
         document.body.style.overflow = 'hidden';
     };
 
+    const touchStartX = useRef(0);
+const touchEndX = useRef(0);
 
-    // =========================
+const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+};
+
+const handleTouchEnd = (e) => {
+    touchEndX.current = e.changedTouches[0].clientX;
+
+    const distance =
+        touchStartX.current - touchEndX.current;
+
+    // 50px 이상 움직였을 때만 스와이프
+    if (Math.abs(distance) < 50) return;
+
+    if (distance > 0) {
+        // 왼쪽으로 스와이프 → 다음
+        nextImage();
+    } else {
+        // 오른쪽으로 스와이프 → 이전
+        prevImage();
+    }
+};
+
+
     // 갤러리 닫기
-    // =========================
-
     const closeGallery = () => {
         setIsGalleryOpen(false);
 
@@ -52,10 +71,7 @@ const Gallery = () => {
     };
 
 
-    // =========================
     // 다음 사진
-    // =========================
-
     const nextImage = () => {
         setCurrentIndex((prev) =>
             prev === images.length - 1
@@ -65,10 +81,7 @@ const Gallery = () => {
     };
 
 
-    // =========================
     // 이전 사진
-    // =========================
-
     const prevImage = () => {
         setCurrentIndex((prev) =>
             prev === 0
@@ -83,28 +96,21 @@ const Gallery = () => {
 
             <div className="inner">
 
-                {/* =========================
-                    Section Title
-                ========================== */}
-
                 <SectionTitle
                     subTitle="Gallery"
                     title="our moments"
                 />
 
 
-                {/* =========================
-                    Gallery Preview
-                    메인에서는 7장만 노출
-                ========================== */}
+                {/* Masonry Gallery */}
 
                 <div className="gallery-preview">
 
-                    {images.slice(0, 7).map((image, index) => (
+                    {images.slice(0, 8).map((image, index) => (
 
                         <button
                             key={index}
-                            className={`gallery-photo gallery-photo--${String(index + 1).padStart(2, '0')}`}
+                            className="gallery-photo"
                             onClick={() => openGallery(index)}
                         >
 
@@ -113,9 +119,7 @@ const Gallery = () => {
                                 alt={`웨딩 사진 ${index + 1}`}
                             />
 
-                            <span>
-                                {String(index + 1).padStart(2, '0')}
-                            </span>
+                            
 
                         </button>
 
@@ -124,9 +128,7 @@ const Gallery = () => {
                 </div>
 
 
-                {/* =========================
-                    View All
-                ========================== */}
+                {/* View All */}
 
                 <button
                     className="gallery-view-all"
@@ -146,15 +148,13 @@ const Gallery = () => {
             </div>
 
 
-            {/* =========================
-                Full Gallery Modal
-            ========================== */}
+            {/* Full Gallery Modal */}
 
             {isGalleryOpen && (
 
-                <div className="gallery-modal">
-
-                    {/* 닫기 */}
+                <div 
+                    className="gallery-modal" 
+                >
 
                     <button
                         className="gallery-modal-close"
@@ -165,8 +165,6 @@ const Gallery = () => {
                     </button>
 
 
-                    {/* 이전 */}
-
                     <button
                         className="gallery-arrow gallery-arrow--prev"
                         onClick={prevImage}
@@ -176,9 +174,11 @@ const Gallery = () => {
                     </button>
 
 
-                    {/* 사진 */}
-
-                    <div className="gallery-modal-content">
+                    <div 
+                    className="gallery-modal-content"
+                    onTouchStart={handleTouchStart}
+                    onTouchEnd={handleTouchEnd}
+                    >
 
                         <img
                             src={images[currentIndex]}
@@ -201,8 +201,6 @@ const Gallery = () => {
 
                     </div>
 
-
-                    {/* 다음 */}
 
                     <button
                         className="gallery-arrow gallery-arrow--next"
