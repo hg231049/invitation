@@ -96,6 +96,22 @@ export default function KakaoMap() {
           </div>
         </div>
       </div>
+      <div className="mt-5 border-t border-b border-[#DDE5D8] py-5">
+        <div className="flex gap-3">
+          <span className="text-sm">🚇</span>
+
+          <div>
+            <p className="text-[13px] font-medium text-[#435747]">
+              주차
+            </p>
+
+            <p className="mt-1 text-[12px] leading-5 text-[#899689]">
+              건물 내 주차장 이용
+              하객 2시간 무료
+            </p>
+          </div>
+        </div>
+      </div>
 
       <div className="mt-5 grid grid-cols-2 gap-2.5">
 

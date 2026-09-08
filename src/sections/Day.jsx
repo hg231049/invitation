@@ -1,27 +1,92 @@
+
+import dayjs from 'dayjs';
 import SectionTitle from "../components/SectionTitle";
 import InvitationCalender from '../components/InvitationCalender';
-import Timer from '../components/Timer'
-import dayjs from 'dayjs';
-import '../css/day.css'
+import Timer from '../components/Timer';
+import '../css/day.css';
+
+const INVITATION_TIME = '2026-10-24T13:00:00';
+
 const Day = () => {
 
-    const INVITATION_TIME = '2026-10-24T13:00:00';
+    const invitationDate = dayjs(INVITATION_TIME);
 
     return (
-        <section className='wedding-section day-section'>
+        <section className="wedding-section day-section">
+
             <div className="inner">
+
                 <SectionTitle
                     subTitle="Day"
-                    title="오시는 날"
+                    title="our day"
                 />
-                <div className="invitation-container w-full">
-                    <h3 className='relative mb-10 font-500 text-center'>{dayjs(INVITATION_TIME).format('YYYY년 MM월 DD일 dddd A h시')}</h3>
-                    <InvitationCalender/>
-                    <Timer INVITATION_TIME={INVITATION_TIME}/>
+
+
+                {/* =================================
+                    DATE
+                ================================= */}
+
+                <div className="day-date">
+
+                    <p className="day-date__year">
+                        {invitationDate.format('YYYY')}
+                    </p>
+
+                    <div className="day-date__main">
+
+                        <span className="day-date__month">
+                            {invitationDate.format('MMMM')}
+                        </span>
+
+                        <strong>
+                            {invitationDate.format('DD')}
+                        </strong>
+
+                        <span className="day-date__weekday">
+                            {invitationDate.format('dddd')}
+                        </span>
+
+                    </div>
+
+                    <p className="day-date__time">
+                        {invitationDate.format('A h:mm')}
+                    </p>
+
                 </div>
+
+
+                {/* =================================
+                    CALENDAR
+                ================================= */}
+
+                <div className="day-calendar">
+
+                    <InvitationCalender />
+
+                </div>
+
+
+                {/* =================================
+                    D-DAY
+                ================================= */}
+
+                <div className="day-countdown">
+
+                    <p className="day-countdown__label">
+                        UNTIL OUR DAY
+                    </p>
+
+                    <Timer
+                        INVITATION_TIME={INVITATION_TIME}
+                    />
+
+                </div>
+
             </div>
+
         </section>
-    )
-}
+    );
+};
 
 export default Day;
+

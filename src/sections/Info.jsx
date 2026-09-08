@@ -3,7 +3,7 @@ import Map from "../components/Map";
 import Share from "../components/Share";
 const Info = () => {
     return (
-        <section>
+        <section className="section">
             <div className="inner">
                 <SectionTitle
                     subTitle="Location"

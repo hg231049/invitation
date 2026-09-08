@@ -1,197 +1,577 @@
-/* =========================
-   Calendar
-========================= */
 
-.react-calendar {
-  width: 100%;
-  max-width: 390px;
-  margin: 0 auto;
+/* ==================================================
+   DAY SECTION
+================================================== */
 
-  padding: 24px 18px;
-
-  border: none;
-  border-radius: 15px;
-
-  background: rgba(255, 255, 255, 0.65);
-
-  box-shadow:
-    0 15px 40px rgba(67, 87, 71, 0.08);
+.day-section {
+    padding: 0;
+    background: #f6f5ef;
 }
 
 
-/* 월 / 년도 */
+/* ==================================================
+   DATE
+================================================== */
+
+.day-date {
+    margin-top: 55px;
+
+    text-align: center;
+
+    color: #435747;
+}
+
+
+/* YEAR */
+
+.day-date__year {
+    margin: 0 0 18px;
+
+    color: #899689;
+
+    font-family: serif;
+
+    font-size: 10px;
+
+    font-weight: 400;
+
+    letter-spacing: 5px;
+}
+
+
+/* MAIN DATE */
+
+.day-date__main {
+    display: flex;
+
+    align-items: baseline;
+    justify-content: center;
+
+    gap: 12px;
+}
+
+
+.day-date__month {
+    color: #778b6f;
+
+    font-family: serif;
+
+    font-size: 15px;
+
+    font-weight: 400;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+.day-date__main strong {
+    color: #435747;
+
+    font-family: serif;
+
+    font-size: 58px;
+
+    font-weight: 400;
+
+    line-height: .9;
+
+    letter-spacing: -2px;
+}
+
+
+.day-date__weekday {
+    color: #899689;
+
+    font-family: serif;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+}
+
+
+/* TIME */
+
+.day-date__time {
+    margin: 20px 0 0;
+
+    color: #7a8579;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+}
+
+
+/* ==================================================
+   CALENDAR
+================================================== */
+
+.day-calendar {
+    margin-top: 48px;
+}
+
+
+/* react-calendar */
+
+.invitation-calendar .react-calendar {
+
+    width: 100%;
+    max-width: 390px;
+
+    margin: 0 auto;
+
+    padding: 20px 15px 22px;
+
+    border: 1px solid #e0e5dc;
+
+    border-radius: 2px;
+
+    background: rgba(255, 255, 255, .48);
+
+    box-shadow:
+        0 15px 40px rgba(67, 87, 71, .05);
+}
+
+
+/* ==================================================
+   CALENDAR NAVIGATION
+================================================== */
+
+.invitation-calendar
 .react-calendar__navigation {
-  margin-bottom: 15px;
+
+    height: 38px;
+
+    margin-bottom: 12px;
 }
 
+
+.invitation-calendar
 .react-calendar__navigation button {
-  color: #435747;
 
-  font-size: 1rem;
-  font-weight: 600;
+    min-width: 38px;
 
-  background: transparent;
+    color: #435747;
+
+    font-family: serif;
+
+    font-size: 13px;
+
+    font-weight: 400;
+
+    background: transparent;
 }
 
 
-/* 요일 */
+.invitation-calendar
+.react-calendar__navigation button:enabled:hover,
+.invitation-calendar
+.react-calendar__navigation button:enabled:focus {
+
+    background: transparent;
+
+    color: #738a72;
+}
+
+
+/* ==================================================
+   WEEKDAYS
+================================================== */
+
+.invitation-calendar
 .react-calendar__month-view__weekdays {
-  margin-bottom: 8px;
+
+    margin-bottom: 5px;
 }
 
+
+.invitation-calendar
 .react-calendar__month-view__weekdays__weekday {
-  color: #8b9689;
 
-  font-size: 10px;
-  font-weight: 500;
+    padding: 8px 0;
 
-  text-decoration: none;
+    color: #899689;
+
+    font-family: serif;
+
+    font-size: 9px;
+
+    font-weight: 400;
+
+    letter-spacing: 1px;
+
+    text-decoration: none;
+
+    text-transform: uppercase;
 }
 
 
-/* 일요일 */
+.invitation-calendar
+.react-calendar__month-view__weekdays__weekday abbr {
+
+    text-decoration: none;
+}
+
+
+/* SUNDAY */
+
+.invitation-calendar
 .react-calendar__month-view__weekdays__weekday:first-child {
-  color: #9b7770;
+
+    color: #a58680;
 }
 
 
-/* 토요일 */
+/* SATURDAY */
+
+.invitation-calendar
 .react-calendar__month-view__weekdays__weekday:last-child {
-  color: #738a72;
+
+    color: #738a72;
 }
 
 
-/* 날짜 */
+/* ==================================================
+   DATE TILE
+================================================== */
+
+.invitation-calendar
 .react-calendar__tile {
-  position: relative;
 
-  height: 50px;
+    position: relative;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+    height: 46px;
 
-  border-radius: 50%;
+    padding: 0;
 
-  color: #657264;
+    border-radius: 0;
 
-  font-size: 13px;
+    color: #687467;
+
+    font-family: serif;
+
+    font-size: 12px;
+
+    font-weight: 400;
+
+    background: transparent;
+}
+
+
+/* 날짜 hover */
+
+.invitation-calendar
+.react-calendar__tile:enabled:hover {
+
+    border-radius: 50%;
+
+    background: #e8eee4;
 }
 
 
 /* 오늘 */
+
+.invitation-calendar
 .react-calendar__tile--now {
-  background: transparent;
-  color: #435747;
+
+    background: transparent;
+
+    color: #435747;
 }
 
 
-/* hover */
-.react-calendar__tile:enabled:hover {
-  background: #e3ebdd;
-}
+/* 선택 */
 
-
-/* 선택된 날짜 */
+.invitation-calendar
 .react-calendar__tile--active {
-  background: transparent;
-  color: #fff;
+
+    background: transparent;
+
+    color: #fff;
 }
 
 
-/* 선택 날짜 하트 */
+/* ==================================================
+   WEDDING DATE HEART
+================================================== */
+
 .invitation-heart {
-  position: absolute;
 
-  top: 50%;
-  left: 50%;
+    position: absolute;
 
-  width: 34px;
-  height: 34px;
+    top: 50%;
+    left: 50%;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
 
-  transform: translate(-50%, -50%);
+    align-items: center;
+    justify-content: center;
 
-  border-radius: 50%;
+    width: 32px;
+    height: 32px;
 
-  background: #738a72;
+    transform:
+        translate(-50%, -50%);
 
-  color: #fff;
+    border-radius: 50%;
 
-  font-size: 11px;
+    background: #738a72;
 
-  z-index: 1;
+    color: #fff;
+
+    font-family: sans-serif;
+
+    font-size: 10px;
+
+    line-height: 1;
+
+    z-index: 2;
 }
 
 
-/* =========================
-   D-Day
-========================= */
+/* ==================================================
+   D-DAY
+================================================== */
+
+.day-countdown {
+    max-width: 390px;
+
+    margin: 55px auto 0;
+
+    text-align: center;
+}
+
+
+/* LABEL */
+
+.day-countdown__label {
+
+    margin: 0 0 18px;
+
+    color: #899689;
+
+    font-family: serif;
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+}
+
+
+/* ==================================================
+   TIMER BOX
+================================================== */
 
 .dday-box {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
 
-  max-width: 390px;
+    display: grid;
 
-  margin: 55px auto 25px;
+    grid-template-columns:
+        repeat(4, 1fr);
 
-  padding: 25px 10px;
+    padding: 22px 5px;
 
-  border-top: 1px solid #d7dfd2;
-  border-bottom: 1px solid #d7dfd2;
+    border-top: 1px solid #d7dfd2;
+
+    border-bottom: 1px solid #d7dfd2;
 }
 
+
+/* TIME UNIT */
 
 .time-unit {
-  text-align: center;
 
-  border-right: 1px solid #dde4d9;
+    position: relative;
+
+    text-align: center;
 }
 
-.time-unit:last-child {
-  border-right: none;
+
+.time-unit:not(:last-child)::after {
+
+    content: '';
+
+    position: absolute;
+
+    top: 50%;
+    right: 0;
+
+    width: 1px;
+    height: 28px;
+
+    transform:
+        translateY(-50%);
+
+    background: #dde4d9;
 }
 
+
+/* NUMBER */
 
 .time-unit span {
-  display: block;
 
-  margin-bottom: 8px;
+    display: block;
 
-  color: #435747;
+    margin-bottom: 7px;
 
-  font-family: serif;
-  font-size: 27px;
-  font-weight: 400;
+    color: #435747;
+
+    font-family: serif;
+
+    font-size: 25px;
+
+    font-weight: 400;
+
+    line-height: 1;
 }
 
+
+/* LABEL */
 
 .time-unit p {
-  margin: 0;
 
-  color: #899689;
+    margin: 0;
 
-  font-size: 8px;
-  letter-spacing: 2px;
+    color: #899689;
+
+    font-family: serif;
+
+    font-size: 7px;
+
+    font-weight: 400;
+
+    letter-spacing: 2px;
 }
 
 
-/* 남은 날짜 */
+/* ==================================================
+   D-DAY TEXT
+================================================== */
+
 .dday-text {
-  margin-top: 15px;
 
-  color: #7a8579;
+    margin: 20px 0 0;
 
-  font-size: 12px;
+    color: #7a8579;
 
-  text-align: center;
+    font-size: 11px;
+
+    font-weight: 400;
+
+    letter-spacing: .5px;
 }
+
 
 .dday-text b {
-  color: #435747;
+
+    color: #435747;
+
+    font-weight: 500;
 }
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 768px) {
+
+    .day-section {
+        padding: 0;
+    }
+
+
+    .day-date {
+        margin-top: 48px;
+    }
+
+
+    .day-date__main {
+        gap: 9px;
+    }
+
+
+    .day-date__month {
+        font-size: 13px;
+    }
+
+
+    .day-date__main strong {
+        font-size: 52px;
+    }
+
+
+    .day-date__weekday {
+        font-size: 11px;
+    }
+
+
+    .day-date__time {
+        margin-top: 17px;
+
+        letter-spacing: 3px;
+    }
+
+
+    .day-calendar {
+        margin-top: 42px;
+    }
+
+
+    .invitation-calendar .react-calendar {
+        padding: 18px 10px 20px;
+    }
+
+
+    .invitation-calendar
+    .react-calendar__tile {
+
+        height: 43px;
+
+        font-size: 11px;
+    }
+
+
+    .invitation-heart {
+
+        width: 30px;
+        height: 30px;
+
+        font-size: 9px;
+    }
+
+
+    .day-countdown {
+        margin-top: 48px;
+    }
+
+
+    .dday-box {
+        padding: 20px 2px;
+    }
+
+
+    .time-unit span {
+        font-size: 22px;
+    }
+
+
+    .time-unit p {
+        font-size: 6px;
+
+        letter-spacing: 1.5px;
+    }
+
+
+    .dday-text {
+        font-size: 10px;
+    }
+}
+

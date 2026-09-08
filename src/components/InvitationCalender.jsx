@@ -1,34 +1,64 @@
-// react-calendar 기본 스타일 불러오기
+
 import dayjs from 'dayjs';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 
+const INVITATION_DATE = '2026-10-24';
+
 const InvitationCalender = () => {
-    const INVITATION_DATE = '2026-10-24';
-    // 캘린더 날짜 박스 내부에 하트 표시
-    const renderTileContent = ({date,view}) => {
-        if(view === 'month'){
-            const formattedDate = dayjs(date).format('YYYY-MM-DD');
-            if(formattedDate === INVITATION_DATE){
-                return <div className='invitation-heart'>♥</div>;
-            }
+
+    const renderTileContent = ({ date, view }) => {
+
+        if (view !== 'month') {
+            return null;
         }
-         return null;
+
+        const formattedDate = dayjs(date).format('YYYY-MM-DD');
+
+        if (formattedDate === INVITATION_DATE) {
+            return (
+                <span className="invitation-heart">
+                    ♥
+                </span>
+            );
+        }
+
+        return null;
     };
 
 
     return (
-        <div>
-             <Calendar
+
+        <div className="invitation-calendar">
+
+            <Calendar
                 value={new Date(INVITATION_DATE)}
-                activeStartDate={new Date(INVITATION_DATE)} // 초대이 속한 달로 기본 고정
-                formatDay={(locale, date) => dayjs(date).format('D')} // '일' 글자 제거하고 숫자만
+                activeStartDate={new Date(INVITATION_DATE)}
+
+                formatDay={(locale, date) =>
+                    dayjs(date).format('D')
+                }
+
                 tileContent={renderTileContent}
-                prev2Label={null} // 년 단위 이동 버튼 숨김
+
+                prev2Label={null}
                 next2Label={null}
-             />
+
+                showNeighboringMonth={false}
+
+                locale="en-US"
+
+                navigationLabel={({ date }) =>
+                    dayjs(date).format('MMMM YYYY')
+                }
+
+                prevLabel="‹"
+                nextLabel="›"
+            />
+
         </div>
-    )
-}
+    );
+};
 
 export default InvitationCalender;
+

@@ -1,6 +1,7 @@
 import './App.css'
 import { useState, useEffect } from 'react'
 import Home from './sections/Home'
+import Message from './sections/Message'
 import Gallery from './sections/Gallery'
 import Day from './sections/Day'
 import Account from './sections/Account'
@@ -37,10 +38,12 @@ function App() {
         isOpen={isOpen}
         setIsOpen={setIsOpen}
       />
-      <Gallery/>
+      
       <Day />
-      <Account />
+      <Message/>
+      <Gallery/>
       <Info />
+      <Account />
       <Guestbook />
     </main>
   )

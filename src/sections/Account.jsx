@@ -40,7 +40,7 @@ const Account = () => {
     }
 
     return (
-        <section className="section">
+        <section className="">
             <div className="inner">
               <SectionTitle
                 subTitle="Account"
@@ -50,7 +50,7 @@ const Account = () => {
               {ACCOUNT_DATA.map((family, idx) => (
                 <div
                   key={idx}
-                  className="mb-6 p-5 rounded-[8px] border border-[#DDE5D8] bg-[#FAFBF7]"
+                  className="mb-6 p-5 rounded-[8px] border border-[#DDE5D8] "
                 >
                   <h4 className="mb-4 text-[15px] font-semibold text-[#435747]">
                     {family.group}
