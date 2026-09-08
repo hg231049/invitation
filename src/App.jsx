@@ -8,7 +8,6 @@ import Info from './sections/Info'
 import Guestbook from './sections/Guestbook'
 
 function App() {
-  const [isDark, setIsDark] = useState(false);
   const [isOpen, setIsOpen] = useState(() => {
     return sessionStorage.getItem('wedding-open') === 'true';
   });
@@ -16,15 +15,7 @@ function App() {
     sessionStorage.setItem('wedding-open', isOpen);
   }, [isOpen]);
 
-  useEffect(() => {
-    const hour = new Date().getHours();
 
-    if (hour >= 18 || hour < 6) {
-      setIsDark(true);
-    } else {
-      setIsDark(false);
-    }
-  }, []);
 
   // 오프닝이 열리기 전에는 스크롤 잠금
   useEffect(() => {
@@ -41,13 +32,7 @@ function App() {
   }, [isOpen]);
 
   return (
-    <main
-      className={
-        isDark
-          ? 'bg-[#26372B]'
-          : 'bg-[#F6F5EF]'
-      }
-    >
+    <main>
       <Home
         isOpen={isOpen}
         setIsOpen={setIsOpen}

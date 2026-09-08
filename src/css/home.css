@@ -121,12 +121,16 @@
 ================================================== */
 
 .inside-content {
+  display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
   position: absolute;
 
   left: 0;
   right: 0;
 
-  bottom: 17%;
+  top: 50%;
 
   z-index: 5;
 
@@ -135,13 +139,10 @@
   color: #fad156;
 
   text-shadow:
-    0 2px 7px rgba(0,0,0,.35);
+    0 2px 7px rgba(0,0,0,.65);
+    transform: translateY(-50%);
 }
 
-
-/* ==================================================
-   OUR
-================================================== */
 
 .inside-content .our {
   display: block;
@@ -150,17 +151,13 @@
 
   font-family: serif;
 
-  font-size: 12px;
+  font-size: 16px;
 
   font-weight: 400;
 
   letter-spacing: 7px;
 }
 
-
-/* ==================================================
-   TITLE
-================================================== */
 
 .inside-content h1 {
   margin: 0 0 18px;
@@ -172,9 +169,6 @@
   );
 
   font-weight: 700;
-
-  line-height: 1.02;
-
   letter-spacing: -1px;
 }
 
@@ -186,17 +180,12 @@
     opacity;
 }
 
-
-/* ==================================================
-   DATE
-================================================== */
-
 .inside-content p {
   margin: 0;
 
   font-family: serif;
 
-  font-size: 11px;
+  font-size: 12px;
 
   font-weight: 400;
 
@@ -238,11 +227,6 @@
   box-shadow:
     -8px 0 20px rgba(45,60,48,.08),
     15px 0 50px rgba(45,60,48,.12);
-
-  /*
-    ★ 페이지 넘김 속도
-  */
-
   transition:
     transform
     2s
@@ -254,10 +238,6 @@
     );
 
   overflow: hidden;
-
-  /*
-    뒷면 숨김
-  */
 
   backface-visibility: hidden;
 
@@ -534,15 +514,7 @@
     perspective: 1200px;
   }
 
-
-  .inside-content {
-    bottom: 16%;
-  }
-
-
   .inside-content .our {
-    font-size: 10px;
-
     letter-spacing: 6px;
 
     margin-bottom: 15px;
@@ -556,12 +528,11 @@
       52px
     );
 
-    line-height: 1.04;
+    line-height: 1.5;
   }
 
 
   .inside-content p {
-    font-size: 9px;
 
     letter-spacing: 3px;
   }

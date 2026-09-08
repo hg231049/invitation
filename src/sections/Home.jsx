@@ -6,192 +6,139 @@ const Home = ({ isOpen, setIsOpen }) => {
 
   const handleOpen = () => {
     if (isOpen) return;
-
     setIsOpen(true);
   };
 
   return (
     <section className={`opening ${isOpen ? 'is-open' : ''}`}>
-
       <div
         className="book"
         onClick={handleOpen}
       >
-
-        {/* =====================================
-            펼쳐진 뒤 보이는 페이지
-        ====================================== */}
         <div className="inside-page">
-
           <img
             src={openingImage}
-            alt="웨딩 사진"
+            alt="오프닝 사진"
           />
-
-          {/* 사진 위 어두운 오버레이 */}
           <div className="inside-overlay" />
+            <div className="inside-content">
 
+              <motion.span
+                className="our"
+                initial={{
+                  opacity: 0,
+                  y: 25,
+                }}
+                animate={
+                  isOpen
+                    ? {
+                        opacity: 1,
+                        y: 0,
+                      }
+                    : {
+                        opacity: 0,
+                        y: 25,
+                      }
+                }
+                transition={{
+                  delay: 1.05,
+                  duration: 0.6,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+              >
+                OUR
+              </motion.span>
 
-          {/* =================================
-              OPEN 이후 텍스트
-          ================================== */}
-          <div className="inside-content">
+              <motion.h1
+                className="font-pf"
+                initial="hidden"
+                animate={isOpen ? 'visible' : 'hidden'}
+                variants={{
+                  hidden: {},
 
-
-            {/* OUR */}
-            <motion.span
-              className="our"
-              initial={{
-                opacity: 0,
-                y: 25,
-              }}
-              animate={
-                isOpen
-                  ? {
-                      opacity: 1,
-                      y: 0,
-                    }
-                  : {
-                      opacity: 0,
-                      y: 25,
-                    }
-              }
-              transition={{
-                delay: 1.95,
-                duration: 0.6,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-            >
-              OUR
-            </motion.span>
-
-
-            {/* =================================
-                Welcome
-                To The
-                Show
-            ================================== */}
-
-            <motion.h1
-              className="font-pf"
-              initial="hidden"
-              animate={isOpen ? 'visible' : 'hidden'}
-              variants={{
-                hidden: {},
-
-                visible: {
-                  transition: {
-                    delayChildren: 2.05,
-                    staggerChildren: 0.2,
+                  visible: {
+                    transition: {
+                      delayChildren: 1.45,
+                      staggerChildren: 0.2,
+                    },
                   },
-                },
-              }}
-            >
+                }}
+              >
 
-              {['Welcome', 'To The', 'Show'].map((text) => (
+                {['Welcome', 'To The', 'Show'].map((text) => (
 
-                <motion.span
-                  key={text}
-                  className="title-line"
+                  <motion.span
+                    key={text}
+                    className="title-line"
 
-                  variants={{
-                    hidden: {
-                      opacity: 0,
-                      y: 55,
-                      scale: 0.88,
-                    },
-
-                    visible: {
-                      opacity: 1,
-                      y: 0,
-                      scale: 1,
-
-                      transition: {
-                        type: 'spring',
-                        stiffness: 180,
-                        damping: 10,
-                        mass: 0.8,
+                    variants={{
+                      hidden: {
+                        opacity: 0,
+                        y: 55,
+                        scale: 0.88,
                       },
-                    },
-                  }}
-                >
-                  {text}
-                </motion.span>
 
-              ))}
+                      visible: {
+                        opacity: 1,
+                        y: 0,
+                        scale: 1,
 
-            </motion.h1>
+                        transition: {
+                          type: 'spring',
+                          stiffness: 180,
+                          damping: 10,
+                          mass: 0.8,
+                        },
+                      },
+                    }}
+                  >
+                    {text}
+                  </motion.span>
 
+                ))}
 
-            {/* 날짜 */}
-            <motion.p
-              initial={{
-                opacity: 0,
-                y: 20,
-              }}
-              animate={
-                isOpen
-                  ? {
-                      opacity: 1,
-                      y: 0,
-                    }
-                  : {
-                      opacity: 0,
-                      y: 20,
-                    }
-              }
-              transition={{
-                delay: 2.8,
-                duration: 0.6,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-            >
-              2026. 10. 24 SAT
-            </motion.p>
+              </motion.h1>
 
-          </div>
-        </div>
-
-
-        {/* =====================================
-            청첩장 표지
-        ====================================== */}
-        <div className="cover">
-
-          <div className="cover-paper">
-
-
-            {/* 표지 텍스트 */}
-            <div className="cover-content">
-
-              <span>
-                WEDDING
-              </span>
-
-              <h1>
-                INVITATION
-              </h1>
-
-              <p>
-                EUNSEO & GUNGU
-              </p>
+              <motion.p
+                initial={{
+                  opacity: 0,
+                  y: 20,
+                }}
+                animate={
+                  isOpen
+                    ? {
+                        opacity: 1,
+                        y: 0,
+                      }
+                    : {
+                        opacity: 0,
+                        y: 20,
+                      }
+                }
+                transition={{
+                  delay: 2.8,
+                  duration: 0.6,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+              >
+                2026. 10. 24 SAT
+              </motion.p>
 
             </div>
-
-
-            {/* 오른쪽 페이지 끝부분 */}
-            <div className="paper-edge" />
-
-          </div>
-
         </div>
 
+        <div className="cover">
+          <div className="cover-paper">
+            <div className="cover-content">
+              <span> WEDDING</span>
+              <h1>INVITATION</h1>
+              <p>LEE EUNSEO & HAN GUNGU</p>
+            </div>
+            <div className="paper-edge" />
+          </div>
+        </div>
       </div>
 
-
-      {/* =====================================
-          OPEN 안내
-      ====================================== */}
       <div
         className={`open-guide ${isOpen ? 'hidden' : ''}`}
       >
