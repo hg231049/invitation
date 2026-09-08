@@ -16,10 +16,7 @@ const Day = () => {
 
             <div className="inner">
 
-                <SectionTitle
-                    subTitle="Day"
-                    title="our day"
-                />
+             
 
 
                 {/* =================================
