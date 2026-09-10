@@ -7,14 +7,15 @@ const Message = () => {
 
                 <div className="message-content">
                     <p>
-                        평범했던 하루에<br />
-                        서로가 특별해졌습니다.
+                        하얀 눈이 세상을 소복이 덮어가듯<br />
+                        우리의 하루에도 사랑이 차곡차곡 쌓였습니다.<br />
+                        그렇게 쌓아온 사랑으로<br />
+                        이제 평생의 약속으로 이어가려 합니다.
                     </p>
 
                     <p>
-                        함께 웃고, 함께 걷고,<br />
-                        서로의 가장 가까운 곳에서<br />
-                        같은 계절을 바라보려 합니다.
+                        수많은 계절을 지나 서로의 곁을 지나온 두 사람이<br />
+                        앞으로 모든 날을 함께 걸어가려 합니다.
                     </p>
 
                     <p>
@@ -24,7 +25,7 @@ const Message = () => {
                 </div>
 
                 <div className="message-signature">
-                    <strong>은서 & 겅구</strong>
+                    <strong>이은서 & 한건구</strong>
                 </div>
             </div>
         </section>
