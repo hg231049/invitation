@@ -65,7 +65,7 @@ const Home = ({ isOpen, setIsOpen }) => {
                 }}
               >
 
-                {['Welcome', 'To The', 'Show'].map((text) => (
+                {['OUR', 'WEDDING', 'DAY'].map((text) => (
 
                   <motion.span
                     key={text}
@@ -121,7 +121,7 @@ const Home = ({ isOpen, setIsOpen }) => {
                   ease: [0.22, 1, 0.36, 1],
                 }}
               >
-                2026. 10. 24 SAT
+                2027. 12. 11 SAT
               </motion.p>
 
             </div>

@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 
-const INVITATION_DATE = '2026-10-24';
+const INVITATION_DATE = '2027-12-11';
 
 const InvitationCalender = () => {
 

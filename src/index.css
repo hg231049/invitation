@@ -1,5 +1,11 @@
+
 @import "tailwindcss";
 @tailwind utilities;
+
+
+/* ==================================================
+   ANIMATION
+================================================== */
 
 @layer utilities {
   .animate-gradient-flow {
@@ -17,32 +23,61 @@
   }
 }
 
+
+/* ==================================================
+   THEME
+================================================== */
+
 @theme {
-  --color-brand-color: #b53720;
-  --color-sub-color: #fffefe;
+  /* Imperial Hall Warm Tone */
+
+  --color-brand-color: #C99582;
+  --color-sub-color: #FBF7F1;
+
+  --color-ivory: #fffefe;
+  --color-peach: #F7EDE5;
+  --color-peach-point: #E8C5B5;
+  --color-rose: #C99582;
+  --color-warm-brown: #A96F5D;
+  --color-text: #75655D;
+  --color-light-text: #A18D82;
+  --color-line: #E5D6CC;
+
   --max-width-inner: 1660px;
 }
 
+
+/* ==================================================
+   COMMON INNER
+================================================== */
+
 @layer components {
   .inner {
-    @apply max-w-(--max-width-inner) mx-auto px-[20px] py-10 w-full bg-[var(--color-sub-color)] box-border;
+    @apply max-w-(--max-width-inner) mx-auto px-[20px] py-10 w-full box-border;
+
+    background: var(--color-ivory);
   }
 }
 
 
-/* =========================
-   기본
-========================= */
+/* ==================================================
+   BASIC
+================================================== */
 
 html,
 body {
   margin: 0;
+
   width: 100%;
-  background: #fcfcfc;
+
+  background: #FBF7F1;
 }
+
 
 body {
   font-family: 'Figtree', sans-serif;
+
+  color: #75655D;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -51,14 +86,24 @@ body {
   scrollbar-width: none;
 }
 
+
+/* ==================================================
+   TYPOGRAPHY
+================================================== */
+
 .main-title h2 {
   font-family: 'Figtree', sans-serif;
 }
-.font-pf { font-family: "Petit Formal Script", cursive; }
 
-/* =========================
-   스크롤바 숨김
-========================= */
+
+.font-pf {
+  font-family: "Petit Formal Script", cursive;
+}
+
+
+/* ==================================================
+   SCROLLBAR
+================================================== */
 
 html,
 .scroll {
@@ -66,34 +111,37 @@ html,
   scrollbar-width: none;
 }
 
+
 html::-webkit-scrollbar,
 .scroll::-webkit-scrollbar {
   display: none;
 }
 
 
-/* =========================
-   Root
-========================= */
+/* ==================================================
+   ROOT
+================================================== */
 
 #root {
   max-width: 600px;
+
   width: 100%;
 
   min-height: 100vh;
 
   margin: 0 auto;
 
-  background: #f8f8f8;
+  background: #FBF7F1;
 
   box-shadow:
-    rgba(100, 100, 100, 0.3) 0px 0px 29px 0px;
+    rgba(100, 75, 65, 0.16)
+    0px 0px 29px 0px;
 }
 
 
-/* =========================
-   Wedding Section
-========================= */
+/* ==================================================
+   WEDDING SECTION
+================================================== */
 
 .section {
   position: relative;
@@ -101,13 +149,20 @@ html::-webkit-scrollbar,
   width: 100%;
 
   margin: 0 auto;
+
   padding: 110px 20px;
 
   box-sizing: border-box;
 
-  background: #f6f5ef;
-  color: #3f483f;
+  background: #FBF7F1;
+
+  color: #75655D;
 }
+
+
+/* ==================================================
+   SECTION DECORATION
+================================================== */
 
 .section::before {
   content: "✽";
@@ -117,24 +172,51 @@ html::-webkit-scrollbar,
   top: 35px;
   left: 25px;
 
-  font-size: 25px;
+  font-family: serif;
 
-  color: #b8c5af;
+  font-size: 20px;
 
-  opacity: 0.45;
+  color: #C99582;
+
+  opacity: 0.35;
 }
 
 
-/* =========================
-   Input
-========================= */
+/* ==================================================
+   INPUT
+================================================== */
 
 .inputBox {
   padding: 10px 20px;
 
+  font-family: 'Figtree', sans-serif;
+
   font-size: 16px;
+
+  color: #75655D;
+
+  border: 1px solid #E5D6CC;
 
   border-radius: 5px;
 
-  background: #f8f8f8;
+  background: #FFFCF8;
+
+  outline: none;
 }
+
+
+.inputBox:focus {
+  border-color: #C99582;
+}
+
+
+/* ==================================================
+   SELECTION
+================================================== */
+
+::selection {
+  background: #E8C5B5;
+
+  color: #75655D;
+}
+

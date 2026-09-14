@@ -1,21 +1,31 @@
+
+/* ==================================================
+   COLOR
+================================================== */
+
+/*
+  Ivory      #FBF7F1
+  Peach      #E8C5B5
+  Rose Beige #C99582
+  Brown      #78665D
+  Soft Brown #A18D82
+*/
+
+
 /* ==================================================
    OPENING
 ================================================== */
 
 .opening {
   position: relative;
-
   width: 100%;
   height: 100dvh;
   min-height: 600px;
 
   overflow: hidden;
 
-  background: #f6f5ef;
+  background: #fbf7f1;
 
-  /*
-    3D 공간의 깊이
-  */
   perspective: 1800px;
   perspective-origin: 50% 50%;
 }
@@ -38,7 +48,7 @@
 
 
 /* ==================================================
-   펼쳐진 뒤 보이는 사진
+   INSIDE PAGE
 ================================================== */
 
 .inside-page {
@@ -53,12 +63,12 @@
 
   overflow: hidden;
 
-  background: #faf9f3;
+  background: #fbf7f1;
 }
 
 
 /* ==================================================
-   배경 사진
+   BACKGROUND PHOTO
 ================================================== */
 
 .inside-page img {
@@ -73,20 +83,15 @@
 
   object-fit: cover;
 
-  /*
-    처음에는 살짝 확대
-  */
   transform: scale(1.08);
 
   transition:
     transform 2.2s
     cubic-bezier(.22, .8, .2, 1);
+
+  filter: saturate(.92) contrast(.96);
 }
 
-
-/*
-  페이지가 열리면서 사진도 천천히 줌아웃
-*/
 
 .opening.is-open .inside-page img {
   transform: scale(1);
@@ -94,7 +99,7 @@
 
 
 /* ==================================================
-   사진 오버레이
+   PHOTO OVERLAY
 ================================================== */
 
 .inside-overlay {
@@ -109,9 +114,9 @@
   background:
     linear-gradient(
       180deg,
-      rgba(255,255,255,0.08) 0%,
-      rgba(255,255,255,0) 38%,
-      rgba(30,45,35,0.18) 100%
+      rgba(255, 247, 239, .08) 0%,
+      rgba(255, 247, 239, 0) 45%,
+      rgba(91, 69, 61, .20) 100%
     );
 }
 
@@ -121,37 +126,41 @@
 ================================================== */
 
 .inside-content {
-  display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 100%;
   position: absolute;
 
-  left: 0;
-  right: 0;
-
-  top: 50%;
+  inset: 0;
 
   z-index: 5;
 
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
   text-align: center;
 
-  color: #ffbf00;
+  color: #fffaf5;
 
   text-shadow:
-    0 2px 7px rgba(0,0,0,.35);
-    transform: translateY(-50%);
+    0 2px 12px rgba(70, 50, 42, .20);
 }
 
+
+/* ==================================================
+   OUR
+================================================== */
 
 .inside-content .our {
   display: block;
 
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 
   font-family: serif;
 
-  font-size: 16px;
+  font-size: 11px;
 
   font-weight: 400;
 
@@ -159,18 +168,26 @@
 }
 
 
+/* ==================================================
+   TITLE
+================================================== */
+
 .inside-content h1 {
-  margin: 0 0 18px;
+  margin: 0 0 25px;
 
   font-size: clamp(
-    38px,
+    40px,
     10vw,
-    58px
+    60px
   );
 
-  font-weight: 700;
+  font-weight: 500;
+
+  line-height: 1.05;
+
   letter-spacing: -1px;
 }
+
 
 .title-line {
   display: block;
@@ -180,12 +197,17 @@
     opacity;
 }
 
+
+/* ==================================================
+   DATE
+================================================== */
+
 .inside-content p {
   margin: 0;
 
   font-family: serif;
 
-  font-size: 12px;
+  font-size: 10px;
 
   font-weight: 400;
 
@@ -208,25 +230,14 @@
 
   transform-style: preserve-3d;
 
-  /*
-    표지
-  */
+  overflow: hidden;
 
-  background:
-    linear-gradient(
-      135deg,
-      #f8f4ec 0%,
-      #f0ebe2 42%,
-      #dfe6da 100%
-    );
-
-  /*
-    종이 그림자
-  */
+  background: #fbf7f1;
 
   box-shadow:
-    -8px 0 20px rgba(45,60,48,.08),
-    15px 0 50px rgba(45,60,48,.12);
+    -8px 0 20px rgba(110, 80, 68, .05),
+    15px 0 50px rgba(110, 80, 68, .10);
+
   transition:
     transform
     2s
@@ -236,8 +247,6 @@
       .18,
       1
     );
-
-  overflow: hidden;
 
   backface-visibility: hidden;
 
@@ -263,21 +272,21 @@
 
   background:
     radial-gradient(
-      circle at 20% 20%,
-      rgba(255,255,255,.65),
-      transparent 32%
+      circle at 50% 20%,
+      rgba(255,255,255,.95),
+      transparent 30%
     ),
     linear-gradient(
       135deg,
-      #f8f4ec 0%,
-      #eee9df 50%,
-      #e3e8df 100%
+      #fdf9f3 0%,
+      #faf3eb 55%,
+      #f2e4da 100%
     );
 }
 
 
 /* ==================================================
-   종이 질감
+   SUBTLE PAPER TEXTURE
 ================================================== */
 
 .cover-paper::before {
@@ -289,30 +298,47 @@
 
   z-index: 1;
 
-  opacity: .4;
+  opacity: .25;
 
   pointer-events: none;
 
   background:
     radial-gradient(
       circle at 20% 30%,
-      rgba(255,255,255,.8) 0 1px,
+      rgba(185, 140, 122, .10) 0 1px,
       transparent 1.5px
     ),
     radial-gradient(
       circle at 70% 70%,
-      rgba(80,90,75,.08) 0 1px,
+      rgba(150, 110, 95, .07) 0 1px,
       transparent 1.5px
     );
 
   background-size:
-    5px 5px,
-    7px 7px;
+    7px 7px,
+    9px 9px;
 }
 
 
 /* ==================================================
-   종이 가장자리
+   PAPER FRAME
+================================================== */
+
+.cover-paper::after {
+  content: '';
+
+  position: absolute;
+
+  inset: 24px;
+
+  border: 1px solid rgba(201, 149, 130, .32);
+
+  pointer-events: none;
+}
+
+
+/* ==================================================
+   PAPER EDGE
 ================================================== */
 
 .paper-edge {
@@ -332,7 +358,7 @@
     linear-gradient(
       90deg,
       rgba(255,255,255,0),
-      rgba(70,80,70,.13)
+      rgba(145, 100, 85, .10)
     );
 }
 
@@ -358,7 +384,7 @@
 
   text-align: center;
 
-  color: #435747;
+  color: #78665d;
 }
 
 
@@ -376,6 +402,8 @@
   font-weight: 400;
 
   letter-spacing: 7px;
+
+  color: #a18478;
 }
 
 
@@ -397,10 +425,19 @@
   font-weight: 400;
 
   letter-spacing: 2px;
+
+  color: #78665d;
 }
+
+
+/* ==================================================
+   NAMES
+================================================== */
 
 .cover-content p {
   margin-top: 26px;
+
+  font-family: serif;
 
   font-size: 9px;
 
@@ -408,24 +445,21 @@
 
   letter-spacing: 5px;
 
-  color: #8b7d70;
+  color: #b08372;
 }
 
 
 /* ==================================================
-   ★★★★★★★★★★★★★★★★★★★★★★
    PAGE TURN
-   ★★★★★★★★★★★★★★★★★★★★★★
 ================================================== */
 
 .opening.is-open .cover {
-
 
   transform:
     rotateY(-179deg);
 
   box-shadow:
-    0 0 10px rgba(45,60,48,.03);
+    0 0 10px rgba(110, 80, 68, .02);
 }
 
 
@@ -441,9 +475,9 @@
 
   z-index: 30;
 
-  color: #435747;
+  color: #a87968;
 
-  font-size: 10px;
+  font-size: 9px;
 
   font-weight: 400;
 
@@ -465,10 +499,6 @@
 }
 
 
-/* ==================================================
-   OPEN GUIDE HIDDEN
-================================================== */
-
 .open-guide.hidden {
   opacity: 0;
 
@@ -484,7 +514,6 @@
 
   0%,
   100% {
-
     opacity: .35;
 
     transform:
@@ -493,8 +522,7 @@
   }
 
   50% {
-
-    opacity: 1;
+    opacity: .85;
 
     transform:
       translateX(-50%)
@@ -514,27 +542,45 @@
     perspective: 1200px;
   }
 
-  .inside-content .our {
-    letter-spacing: 6px;
 
-    margin-bottom: 15px;
+  .cover-paper::after {
+    inset: 18px;
+  }
+
+
+  .inside-content .our {
+    margin-bottom: 17px;
+
+    font-size: 10px;
+
+    letter-spacing: 6px;
   }
 
 
   .inside-content h1 {
     font-size: clamp(
-      36px,
+      38px,
       11vw,
-      52px
+      54px
     );
 
-    line-height: 1.5;
+    line-height: 1.08;
   }
 
 
   .inside-content p {
+    font-size: 9px;
 
     letter-spacing: 3px;
+  }
+
+
+  .cover-content span {
+    margin-bottom: 22px;
+
+    font-size: 9px;
+
+    letter-spacing: 6px;
   }
 
 
@@ -546,4 +592,23 @@
     );
   }
 
+
+  .cover-content p {
+    margin-top: 23px;
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+  }
+
+
+  .open-guide {
+    bottom: 38px;
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+  }
+
 }
+

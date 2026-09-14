@@ -5,7 +5,7 @@ import InvitationCalender from '../components/InvitationCalender';
 import Timer from '../components/Timer';
 import '../css/day.css';
 
-const INVITATION_TIME = '2026-10-24T13:00:00';
+const INVITATION_TIME = '2027-12-11T10:40:00';
 
 const Day = () => {
 

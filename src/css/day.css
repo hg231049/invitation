@@ -5,7 +5,10 @@
 
 .day-section {
     padding: 0;
-    background: #f6f5ef;
+
+    background: #FBF7F1;
+
+    color: #75655D;
 }
 
 
@@ -18,16 +21,18 @@
 
     text-align: center;
 
-    color: #435747;
+    color: #75655D;
 }
 
 
-/* YEAR */
+/* ==================================================
+   YEAR
+================================================== */
 
 .day-date__year {
     margin: 0 0 18px;
 
-    color: #899689;
+    color: #A18D82;
 
     font-family: serif;
 
@@ -39,7 +44,9 @@
 }
 
 
-/* MAIN DATE */
+/* ==================================================
+   MAIN DATE
+================================================== */
 
 .day-date__main {
     display: flex;
@@ -51,8 +58,10 @@
 }
 
 
+/* MONTH */
+
 .day-date__month {
-    color: #778b6f;
+    color: #A98273;
 
     font-family: serif;
 
@@ -66,8 +75,10 @@
 }
 
 
+/* DATE NUMBER */
+
 .day-date__main strong {
-    color: #435747;
+    color: #C99582;
 
     font-family: serif;
 
@@ -81,8 +92,10 @@
 }
 
 
+/* WEEKDAY */
+
 .day-date__weekday {
-    color: #899689;
+    color: #A18D82;
 
     font-family: serif;
 
@@ -92,12 +105,14 @@
 }
 
 
-/* TIME */
+/* ==================================================
+   TIME
+================================================== */
 
 .day-date__time {
     margin: 20px 0 0;
 
-    color: #7a8579;
+    color: #8E776D;
 
     font-size: 10px;
 
@@ -116,25 +131,28 @@
 }
 
 
-/* react-calendar */
+/* ==================================================
+   REACT CALENDAR
+================================================== */
 
 .invitation-calendar .react-calendar {
 
     width: 100%;
+
     max-width: 390px;
 
     margin: 0 auto;
 
     padding: 20px 15px 22px;
 
-    border: 1px solid #e0e5dc;
+    border: 1px solid #E5D6CC;
 
-    border-radius: 2px;
+    border-radius: 3px;
 
-    background: rgba(255, 255, 255, .48);
+    background: rgba(255, 253, 249, .72);
 
     box-shadow:
-        0 15px 40px rgba(67, 87, 71, .05);
+        0 15px 40px rgba(120, 85, 70, .06);
 }
 
 
@@ -156,7 +174,7 @@
 
     min-width: 38px;
 
-    color: #435747;
+    color: #75655D;
 
     font-family: serif;
 
@@ -173,9 +191,9 @@
 .invitation-calendar
 .react-calendar__navigation button:enabled:focus {
 
-    background: transparent;
+    color: #C99582;
 
-    color: #738a72;
+    background: transparent;
 }
 
 
@@ -195,7 +213,7 @@
 
     padding: 8px 0;
 
-    color: #899689;
+    color: #A18D82;
 
     font-family: serif;
 
@@ -211,19 +229,12 @@
 }
 
 
-.invitation-calendar
-.react-calendar__month-view__weekdays__weekday abbr {
-
-    text-decoration: none;
-}
-
-
 /* SUNDAY */
 
 .invitation-calendar
 .react-calendar__month-view__weekdays__weekday:first-child {
 
-    color: #a58680;
+    color: #C99582;
 }
 
 
@@ -232,7 +243,7 @@
 .invitation-calendar
 .react-calendar__month-view__weekdays__weekday:last-child {
 
-    color: #738a72;
+    color: #A98273;
 }
 
 
@@ -251,7 +262,7 @@
 
     border-radius: 0;
 
-    color: #687467;
+    color: #75655D;
 
     font-family: serif;
 
@@ -263,36 +274,36 @@
 }
 
 
-/* 날짜 hover */
+/* DATE HOVER */
 
 .invitation-calendar
 .react-calendar__tile:enabled:hover {
 
     border-radius: 50%;
 
-    background: #e8eee4;
+    background: #F5E5DC;
 }
 
 
-/* 오늘 */
+/* TODAY */
 
 .invitation-calendar
 .react-calendar__tile--now {
 
     background: transparent;
 
-    color: #435747;
+    color: #A98273;
 }
 
 
-/* 선택 */
+/* ACTIVE */
 
 .invitation-calendar
 .react-calendar__tile--active {
 
     background: transparent;
 
-    color: #fff;
+    color: #75655D;
 }
 
 
@@ -320,9 +331,9 @@
 
     border-radius: 50%;
 
-    background: #738a72;
+    background: #C99582;
 
-    color: #fff;
+    color: #FFFDFC;
 
     font-family: sans-serif;
 
@@ -331,6 +342,9 @@
     line-height: 1;
 
     z-index: 2;
+
+    box-shadow:
+        0 3px 10px rgba(170, 110, 90, .12);
 }
 
 
@@ -347,13 +361,15 @@
 }
 
 
-/* LABEL */
+/* ==================================================
+   LABEL
+================================================== */
 
 .day-countdown__label {
 
     margin: 0 0 18px;
 
-    color: #899689;
+    color: #A18D82;
 
     font-family: serif;
 
@@ -378,13 +394,15 @@
 
     padding: 22px 5px;
 
-    border-top: 1px solid #d7dfd2;
+    border-top: 1px solid #E5D6CC;
 
-    border-bottom: 1px solid #d7dfd2;
+    border-bottom: 1px solid #E5D6CC;
 }
 
 
-/* TIME UNIT */
+/* ==================================================
+   TIME UNIT
+================================================== */
 
 .time-unit {
 
@@ -409,11 +427,13 @@
     transform:
         translateY(-50%);
 
-    background: #dde4d9;
+    background: #E8DAD2;
 }
 
 
-/* NUMBER */
+/* ==================================================
+   NUMBER
+================================================== */
 
 .time-unit span {
 
@@ -421,7 +441,7 @@
 
     margin-bottom: 7px;
 
-    color: #435747;
+    color: #75655D;
 
     font-family: serif;
 
@@ -433,13 +453,15 @@
 }
 
 
-/* LABEL */
+/* ==================================================
+   LABEL
+================================================== */
 
 .time-unit p {
 
     margin: 0;
 
-    color: #899689;
+    color: #A18D82;
 
     font-family: serif;
 
@@ -459,7 +481,7 @@
 
     margin: 20px 0 0;
 
-    color: #7a8579;
+    color: #8E776D;
 
     font-size: 11px;
 
@@ -471,7 +493,7 @@
 
 .dday-text b {
 
-    color: #435747;
+    color: #C99582;
 
     font-weight: 500;
 }

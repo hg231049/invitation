@@ -1,10 +1,14 @@
+
 /* ==================================================
    GALLERY
 ================================================== */
 
 .gallery-section {
     padding: 0;
-    background: #f6f5ef;
+
+    background: #FBF7F1;
+
+    color: #75655D;
 }
 
 
@@ -52,28 +56,6 @@
    IMAGE
 ================================================== */
 
-.gallery-photo img {
-    display: block;
-
-    width: 100%;
-    height: auto;
-
-    object-fit: cover;
-
-    border-radius: 2px;
-
-    transition:
-        transform .6s cubic-bezier(.22, .8, .2, 1),
-        filter .5s ease;
-}
-
-
-.gallery-photo:hover img {
-    transform: scale(.97);
-
-    filter: brightness(.92);
-}
-
 
 /* ==================================================
    NUMBER
@@ -84,7 +66,7 @@
 
     margin-top: 8px;
 
-    color: #899689;
+    color: #A18D82;
 
     font-family: serif;
 
@@ -117,12 +99,12 @@
 
     border: 0;
 
-    border-top: 1px solid #d6ddd2;
-    border-bottom: 1px solid #d6ddd2;
+    border-top: 1px solid #E5D6CC;
+    border-bottom: 1px solid #E5D6CC;
 
     background: none;
 
-    color: #435747;
+    color: #75655D;
 
     cursor: pointer;
 
@@ -141,14 +123,14 @@
 
 
 .gallery-view-all:hover {
-    color: #778b6f;
+    color: #C99582;
 
-    border-color: #a8b8a0;
+    border-color: #D9B6A7;
 }
 
 
 .gallery-view-all em {
-    color: #a8b8a0;
+    color: #C99582;
 
     font-style: normal;
 }
@@ -170,7 +152,7 @@
     align-items: center;
     justify-content: center;
 
-    background: rgba(38, 55, 43, .97);
+    background: rgba(65, 48, 42, .96);
 }
 
 
@@ -187,6 +169,8 @@
     justify-content: center;
 
     width: 100%;
+
+    touch-action: pan-y;
 }
 
 
@@ -197,6 +181,9 @@
     max-height: 78vh;
 
     object-fit: contain;
+
+    box-shadow:
+        0 15px 45px rgba(30, 20, 17, .20);
 }
 
 
@@ -213,7 +200,7 @@
 
     margin-top: 22px;
 
-    color: #dfe6da;
+    color: #F4E8E0;
 
     font-family: serif;
 
@@ -226,7 +213,7 @@
 
 
 .gallery-counter i {
-    color: #7f8d80;
+    color: #C99582;
 
     font-style: normal;
 }
@@ -251,7 +238,7 @@
 
     background: none;
 
-    color: #fff;
+    color: #F9F1EB;
 
     cursor: pointer;
 
@@ -281,7 +268,7 @@
 
     background: none;
 
-    color: #fff;
+    color: #F9F1EB;
 
     cursor: pointer;
 
@@ -301,17 +288,13 @@
 .gallery-arrow--next {
     right: 20px;
 }
-.gallery-modal-content {
-    touch-action: pan-y;
-}
+
 
 /* ==================================================
    MOBILE
 ================================================== */
 
 @media (max-width: 768px) {
-
-
 
     .gallery-preview {
         column-gap: 12px;
@@ -357,4 +340,7 @@
         top: 18px;
         right: 18px;
     }
+
 }
+
+
