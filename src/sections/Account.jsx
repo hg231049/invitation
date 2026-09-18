@@ -23,6 +23,14 @@ const ACCOUNT_DATA = [
 const Account = () => {
   const [toastMessage, setToastMessage] = useState('');
 
+  // 어떤 계좌 그룹이 열려있는지
+  const [openIndex, setOpenIndex] = useState(null);
+
+  // 토글
+  const handleToggle = (idx) => {
+    setOpenIndex((prev) => (prev === idx ? null : idx));
+  };
+
   // 클립보드 복사
   const handleCopy = (bank, number) => {
     const textCopy = `${bank} ${number}`;
@@ -40,7 +48,10 @@ const Account = () => {
   // 토스트 메세지
   const showToast = (msg) => {
     setToastMessage(msg);
-    setTimeout(() => setToastMessage(''), 2000);
+
+    setTimeout(() => {
+      setToastMessage('');
+    }, 2000);
   };
 
   return (
@@ -52,101 +63,178 @@ const Account = () => {
           title="마음 전하실 곳"
         />
 
-        {ACCOUNT_DATA.map((family, idx) => (
-          <div
-            key={idx}
-            className="
-              mb-6
-              rounded-[4px]
-              border
-              border-[#E5D6CC]
-              
-              p-5
-            "
-          >
-            {/* 가족 구분 */}
-            <h4 className="
-              mb-4
-              text-[15px]
-              font-medium
-              text-[#A96F5D]
-            ">
-              {family.group}
-            </h4>
+        <div className="flex flex-col gap-3">
 
-            {family.accounts.map((acc, aIdx) => (
+          {ACCOUNT_DATA.map((family, idx) => {
+            const isOpen = openIndex === idx;
+
+            return (
               <div
-                key={aIdx}
-                className={`
-                  py-4
-                  ${
-                    aIdx < family.accounts.length - 1
-                      ? 'border-b border-dashed border-[#E8DAD2]'
-                      : ''
-                  }
-                `}
+                key={idx}
+                className="
+                  overflow-hidden
+                  rounded-[4px]
+                  border
+                  border-[#E5D6CC]
+                  bg-[#fff]
+                "
               >
-                <div className="flex items-center justify-between gap-3">
 
-                  {/* 계좌 정보 */}
-                  <div className="info">
+                {/* 토글 버튼 */}
+                <button
+                  type="button"
+                  onClick={() => handleToggle(idx)}
+                  className="
+                    flex
+                    w-full
+                    items-center
+                    justify-between
+                    border-0
+                    bg-transparent
+                    px-5
+                    py-4
+                    text-left
+                    cursor-pointer
+                  "
+                >
+                  <span className="
+                    text-[14px]
+                    font-medium
+                    text-[#A96F5D]
+                  ">
+                    {family.group}
+                  </span>
 
-                    <div className="flex items-center">
-                      <span className="
-                        mr-[6px]
-                        text-[12px]
-                        text-[#A18D82]
-                      ">
-                        [{acc.role}]
-                      </span>
+                  <span
+                    className={`
+                      flex
+                      h-6
+                      w-6
+                      items-center
+                      justify-center
+                      text-[18px]
+                      font-light
+                      text-[#A18D82]
+                      transition-transform
+                      duration-300
+                      ${isOpen ? 'rotate-45' : ''}
+                    `}
+                  >
+                    +
+                  </span>
+                </button>
 
-                      <strong className="
-                        text-[14px]
-                        font-medium
-                        text-[#75655D]
-                      ">
-                        {acc.name}
-                      </strong>
-                    </div>
+                {/* 계좌 내용 */}
+                <div
+                  className={`
+                    grid
+                    transition-all
+                    duration-300
+                    ease-in-out
+                    ${
+                      isOpen
+                        ? 'grid-rows-[1fr] opacity-100'
+                        : 'grid-rows-[0fr] opacity-0'
+                    }
+                  `}
+                >
+                  <div className="overflow-hidden">
 
                     <div className="
-                      mt-1
-                      text-[13px]
-                      text-[#8E776D]
+                      border-t
+                      border-[#E8DAD2]
+                      px-5
                     ">
-                      {acc.bank} {acc.number}
+
+                      {family.accounts.map((acc, aIdx) => (
+                        <div
+                          key={aIdx}
+                          className={`
+                            py-4
+                            ${
+                              aIdx < family.accounts.length - 1
+                                ? 'border-b border-dashed border-[#E8DAD2]'
+                                : ''
+                            }
+                          `}
+                        >
+                          <div className="
+                            flex
+                            items-center
+                            justify-between
+                            gap-3
+                          ">
+
+                            {/* 계좌 정보 */}
+                            <div className="info">
+
+                              <div className="flex items-center">
+                                <span className="
+                                  mr-[6px]
+                                  text-[12px]
+                                  text-[#A18D82]
+                                ">
+                                  [{acc.role}]
+                                </span>
+
+                                <strong className="
+                                  text-[14px]
+                                  font-medium
+                                  text-[#75655D]
+                                ">
+                                  {acc.name}
+                                </strong>
+                              </div>
+
+                              <div className="
+                                mt-1
+                                text-[13px]
+                                text-[#8E776D]
+                              ">
+                                {acc.bank} {acc.number}
+                              </div>
+
+                            </div>
+
+                            {/* 복사 버튼 */}
+                            <button
+                              type="button"
+                              onClick={() =>
+                                handleCopy(acc.bank, acc.number)
+                              }
+                              className="
+                                shrink-0
+                                rounded-full
+                                border
+                                border-[#D9B6A7]
+                                bg-[#F7EDE5]
+                                px-3
+                                py-1.5
+                                text-[11px]
+                                text-[#A96F5D]
+                                cursor-pointer
+                                transition
+                                hover:bg-[#F1E1D8]
+                                active:scale-95
+                              "
+                            >
+                              복사
+                            </button>
+
+                          </div>
+                        </div>
+                      ))}
+
                     </div>
 
                   </div>
-
-                  {/* 복사 버튼 */}
-                  <button
-                    type="button"
-                    onClick={() => handleCopy(acc.bank, acc.number)}
-                    className="
-                      shrink-0
-                      rounded-full
-                      border
-                      border-[#D9B6A7]
-                      bg-[#F7EDE5]
-                      px-3
-                      py-1.5
-                      text-[11px]
-                      text-[#A96F5D]
-                      cursor-pointer
-                      transition
-                      hover:bg-[#F1E1D8]
-                      active:scale-95
-                    "
-                  >
-                    복사
-                  </button>
-
                 </div>
+
               </div>
-            ))}
-          </div>
-        ))}
+            );
+          })}
+
+        </div>
 
         {/* TOAST */}
         {toastMessage && (

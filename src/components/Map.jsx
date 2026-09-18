@@ -60,7 +60,7 @@ export default function KakaoMap() {
       <div className="mb-6 text-center">
 
         <h3 className="text-[16px] font-medium tracking-wide text-[#75655D]">
-          서울월드컵경기장
+          월드컵컨벤션
         </h3>
 
         <p className="mt-2 text-[13px] leading-6 text-[#A18D82]">

@@ -10,12 +10,17 @@ const supabase = createClient(
 const Guestbook = () => {
 
   const [messages, setMessages] = useState([]);
+
   const [form, setForm] = useState({
     name: '',
     password: '',
     message: ''
   });
+
   const [loading, setLoading] = useState(false);
+
+  // 한 번에 보여줄 방명록 개수
+  const [visibleCount, setVisibleCount] = useState(3);
 
   // 방명록 목록 불러오기
   const fetchGuestbook = async () => {
@@ -70,6 +75,9 @@ const Guestbook = () => {
       });
 
       fetchGuestbook();
+
+      // 새 글 작성 후 다시 3개만 보이도록
+      setVisibleCount(3);
     }
   };
 
@@ -99,6 +107,14 @@ const Guestbook = () => {
       alert('비밀번호가 일치하지 않습니다.');
     }
   };
+
+  // 더보기
+  const handleLoadMore = () => {
+    setVisibleCount((prev) => prev + 3);
+  };
+
+  // 현재 보여줄 방명록
+  const visibleMessages = messages.slice(0, visibleCount);
 
   return (
     <section className="section bg-[#FBF7F1]">
@@ -219,7 +235,7 @@ const Guestbook = () => {
         {/* GUESTBOOK LIST */}
         <div className="flex flex-col gap-3 mt-7">
 
-          {messages.map((item) => (
+          {visibleMessages.map((item) => (
             <div
               key={item.id}
               className="
@@ -287,6 +303,40 @@ const Guestbook = () => {
           ))}
 
         </div>
+
+        {/* 더보기 버튼 */}
+        {visibleCount < messages.length && (
+          <button
+            type="button"
+            onClick={handleLoadMore}
+            className="
+              flex
+              items-center
+              justify-center
+              w-full
+              mt-5
+              py-3.5
+              border
+              border-[#E5D6CC]
+              rounded-[4px]
+              bg-transparent
+              text-[12px]
+              text-[#A96F5D]
+              tracking-[1px]
+              cursor-pointer
+              transition
+              hover:bg-[#F7EDE5]
+              active:scale-[.99]
+            "
+          >
+            더보기
+            <span className="ml-2 text-[10px]">
+              {Math.min(visibleCount + 3, messages.length)}
+              /
+              {messages.length}
+            </span>
+          </button>
+        )}
 
       </div>
     </section>
