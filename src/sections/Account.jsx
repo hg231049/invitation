@@ -23,12 +23,18 @@ const ACCOUNT_DATA = [
 const Account = () => {
   const [toastMessage, setToastMessage] = useState('');
 
-  // 어떤 계좌 그룹이 열려있는지
-  const [openIndex, setOpenIndex] = useState(null);
+  // 처음에는 모든 계좌를 열어둠
+  const [openIndexes, setOpenIndexes] = useState(
+    ACCOUNT_DATA.map((_, idx) => idx)
+  );
 
   // 토글
   const handleToggle = (idx) => {
-    setOpenIndex((prev) => (prev === idx ? null : idx));
+    setOpenIndexes((prev) =>
+      prev.includes(idx)
+        ? prev.filter((index) => index !== idx)
+        : [...prev, idx]
+    );
   };
 
   // 클립보드 복사
@@ -66,7 +72,7 @@ const Account = () => {
         <div className="flex flex-col gap-3">
 
           {ACCOUNT_DATA.map((family, idx) => {
-            const isOpen = openIndex === idx;
+            const isOpen = openIndexes.includes(idx);
 
             return (
               <div
@@ -97,11 +103,13 @@ const Account = () => {
                     cursor-pointer
                   "
                 >
-                  <span className="
-                    text-[14px]
-                    font-medium
-                    text-[#A96F5D]
-                  ">
+                  <span
+                    className="
+                      text-[14px]
+                      font-medium
+                      text-[#A96F5D]
+                    "
+                  >
                     {family.group}
                   </span>
 
@@ -140,11 +148,13 @@ const Account = () => {
                 >
                   <div className="overflow-hidden">
 
-                    <div className="
-                      border-t
-                      border-[#E8DAD2]
-                      px-5
-                    ">
+                    <div
+                      className="
+                        border-t
+                        border-[#E8DAD2]
+                        px-5
+                      "
+                    >
 
                       {family.accounts.map((acc, aIdx) => (
                         <div
@@ -158,39 +168,50 @@ const Account = () => {
                             }
                           `}
                         >
-                          <div className="
-                            flex
-                            items-center
-                            justify-between
-                            gap-3
-                          ">
+
+                          <div
+                            className="
+                              flex
+                              items-center
+                              justify-between
+                              gap-3
+                            "
+                          >
 
                             {/* 계좌 정보 */}
                             <div className="info">
 
                               <div className="flex items-center">
-                                <span className="
-                                  mr-[6px]
-                                  text-[12px]
-                                  text-[#A18D82]
-                                ">
+
+                                <span
+                                  className="
+                                    mr-[6px]
+                                    text-[12px]
+                                    text-[#A18D82]
+                                  "
+                                >
                                   [{acc.role}]
                                 </span>
 
-                                <strong className="
-                                  text-[14px]
-                                  font-medium
-                                  text-[#75655D]
-                                ">
+                                <strong
+                                  className="
+                                    text-[14px]
+                                    font-medium
+                                    text-[#75655D]
+                                  "
+                                >
                                   {acc.name}
                                 </strong>
+
                               </div>
 
-                              <div className="
-                                mt-1
-                                text-[13px]
-                                text-[#8E776D]
-                              ">
+                              <div
+                                className="
+                                  mt-1
+                                  text-[13px]
+                                  text-[#8E776D]
+                                "
+                              >
                                 {acc.bank} {acc.number}
                               </div>
 
@@ -222,6 +243,7 @@ const Account = () => {
                             </button>
 
                           </div>
+
                         </div>
                       ))}
 

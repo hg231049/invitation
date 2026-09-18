@@ -220,3 +220,63 @@ html::-webkit-scrollbar,
   color: #75655D;
 }
 
+/* ==================================================
+   snow effect
+================================================== */
+.snowflake {
+  position: absolute;
+  top: -20px;
+  display: block;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: Arial, sans-serif;
+  font-weight: 300;
+  line-height: 1;
+
+  animation:
+    snowfall linear infinite,
+    snow-rotate 4s linear infinite;
+}
+
+@keyframes snowfall {
+  0% {
+    transform: translate3d(0, -20px, 0);
+  }
+
+  25% {
+    transform: translate3d(
+      calc(var(--drift) * 0.5),
+      25vh,
+      0
+    );
+  }
+
+  50% {
+    transform: translate3d(
+      var(--drift),
+      50vh,
+      0
+    );
+  }
+
+  75% {
+    transform: translate3d(
+      calc(var(--drift) * -0.5),
+      75vh,
+      0
+    );
+  }
+
+  100% {
+    transform: translate3d(0, 110vh, 0);
+  }
+}
+
+@keyframes snow-rotate {
+  from {
+    rotate: 0deg;
+  }
+
+  to {
+    rotate: 360deg;
+  }
+}

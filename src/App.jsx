@@ -7,6 +7,7 @@ import Day from './sections/Day'
 import Account from './sections/Account'
 import Info from './sections/Info'
 import Guestbook from './sections/Guestbook'
+import SnowEffect from "./components/SnowEffect";
 
 function App() {
   const [isOpen, setIsOpen] = useState(() => {
@@ -34,6 +35,7 @@ function App() {
 
   return (
     <main>
+      <SnowEffect />
       <Home
         isOpen={isOpen}
         setIsOpen={setIsOpen}

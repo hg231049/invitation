@@ -116,7 +116,7 @@
       180deg,
       rgba(255, 247, 239, .08) 0%,
       rgba(255, 247, 239, 0) 45%,
-      rgba(91, 69, 61, .20) 100%
+      rgba(91, 69, 61, .60) 100%
     );
 }
 
@@ -138,7 +138,7 @@
 
   align-items: center;
 
-  justify-content: center;
+  justify-content: space-around;
 
   text-align: center;
 
@@ -160,7 +160,7 @@
 
   font-family: serif;
 
-  font-size: 11px;
+  font-size: 12px;
 
   font-weight: 400;
 
@@ -551,7 +551,7 @@
   .inside-content .our {
     margin-bottom: 17px;
 
-    font-size: 10px;
+    font-size: 12px;
 
     letter-spacing: 6px;
   }
@@ -564,12 +564,12 @@
       54px
     );
 
-    line-height: 1.08;
+    line-height: 1.5;
   }
 
 
   .inside-content p {
-    font-size: 9px;
+    font-size: 12px;
 
     letter-spacing: 3px;
   }

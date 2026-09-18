@@ -70,7 +70,7 @@ const Day = () => {
                 <div className="day-countdown">
 
                     <p className="day-countdown__label">
-                        UNTIL OUR DAY
+                        2027년 12월 11일 토요일
                     </p>
 
                     <Timer
