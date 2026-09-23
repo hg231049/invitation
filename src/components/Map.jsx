@@ -15,8 +15,8 @@ export default function KakaoMap() {
 
     window.kakao.maps.load(() => {
       const position = new window.kakao.maps.LatLng(
-        37.56826,
-        126.89724
+        37.56704,
+        126.89792
       );
 
       const map = new window.kakao.maps.Map(
