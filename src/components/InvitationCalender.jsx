@@ -1,4 +1,3 @@
-
 import dayjs from 'dayjs';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
@@ -18,7 +17,7 @@ const InvitationCalender = () => {
         if (formattedDate === INVITATION_DATE) {
             return (
                 <span className="invitation-heart">
-                    ♥
+                    <span>11</span>
                 </span>
             );
         }
@@ -26,9 +25,7 @@ const InvitationCalender = () => {
         return null;
     };
 
-
     return (
-
         <div className="invitation-calendar">
 
             <Calendar
@@ -61,4 +58,3 @@ const InvitationCalender = () => {
 };
 
 export default InvitationCalender;
-

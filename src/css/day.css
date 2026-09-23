@@ -312,39 +312,49 @@
 ================================================== */
 
 .invitation-heart {
-
     position: absolute;
-
     top: 50%;
     left: 50%;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    width: 32px;
-    height: 32px;
-
-    transform:
-        translate(-50%, -50%);
-
-    border-radius: 50%;
-
+    width: 22px;
+    height: 22px;
+    transform: translate(-50%, -50%) rotate(-45deg);
     background: #C99582;
+    z-index: 2;
+}
+
+.invitation-heart::before,
+.invitation-heart::after {
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #C99582;
+}
+
+.invitation-heart::before {
+    top: -11px;
+    left: 0;
+}
+
+.invitation-heart::after {
+    top: 0;
+    left: 11px;
+}
+
+.invitation-heart span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+
+    transform: translate(-50%, -50%) rotate(45deg);
 
     color: #FFFDFC;
-
-    font-family: sans-serif;
-
-    font-size: 10px;
-
+    font-family: serif;
+    font-size: 9px;
+    font-weight: 500;
     line-height: 1;
-
-    z-index: 2;
-
-    box-shadow:
-        0 3px 10px rgba(170, 110, 90, .12);
 }
 
 
@@ -562,10 +572,6 @@
 
 
     .invitation-heart {
-
-        width: 30px;
-        height: 30px;
-
         font-size: 9px;
     }
 

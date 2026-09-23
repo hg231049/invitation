@@ -46,7 +46,7 @@ const Home = ({ isOpen, setIsOpen }) => {
                   ease: [0.22, 1, 0.36, 1],
                 }}
               >
-                OUR
+                Happy
               </motion.span>
 
               <motion.h1

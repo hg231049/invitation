@@ -35,7 +35,7 @@ function App() {
 
   return (
     <main>
-      <SnowEffect />
+      
       <Home
         isOpen={isOpen}
         setIsOpen={setIsOpen}
