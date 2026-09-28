@@ -1,5 +1,5 @@
 import '../css/home.css';
-import openingImage from '../assets/opening.jpeg';
+import openingImage from '../assets/gallery11.jpg';
 import { motion } from 'framer-motion';
 
 const Home = () => {
