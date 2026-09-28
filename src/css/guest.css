@@ -1,0 +1,263 @@
+/* ================================
+   Guestbook
+================================ */
+
+.guestbook-section {
+  background: #FFFEF9;
+  color: #7C8872;
+}
+
+.guestbook-section .inner {
+  background: transparent;
+}
+
+
+/* ================================
+   Form
+================================ */
+
+.guestbook-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+
+/* 이름 / 비밀번호 */
+
+.guestbook-input-row {
+  display: flex;
+  width: 100%;
+  gap: 8px;
+}
+
+.guestbook-input-row input {
+  width: 100%;
+  flex: 1;
+  box-sizing: border-box;
+
+  padding: 12px;
+
+  border: 1px solid #E8E9DE;
+  border-radius: 4px;
+
+  background: #FFFDF5;
+
+  color: #66745F;
+  font-family: inherit;
+  font-size: 13px;
+
+  outline: none;
+}
+
+.guestbook-input-row input::placeholder {
+  color: #B2B9A8;
+}
+
+.guestbook-input-row input:focus {
+  border-color: #AEB89F;
+}
+
+
+/* 메시지 */
+
+.guestbook-form textarea {
+  box-sizing: border-box;
+
+  width: 100%;
+  padding: 12px;
+
+  border: 1px solid #E8E9DE;
+  border-radius: 4px;
+
+  background: #FFFDF5;
+
+  color: #66745F;
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 1.6;
+
+  outline: none;
+  resize: none;
+}
+
+.guestbook-form textarea::placeholder {
+  color: #B2B9A8;
+}
+
+.guestbook-form textarea:focus {
+  border-color: #AEB89F;
+}
+
+
+/* 등록 버튼 */
+
+.guestbook-submit {
+  width: 100%;
+  padding: 12px;
+
+  border: 1px solid #66745F;
+  border-radius: 4px;
+
+  background: #66745F;
+  color: #FFFEF9;
+
+  font-family: inherit;
+  font-size: 13px;
+
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+.guestbook-submit:hover {
+  background: #596652;
+  border-color: #596652;
+}
+
+.guestbook-submit:active {
+  transform: scale(0.99);
+}
+
+.guestbook-submit:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+
+
+/* ================================
+   Guestbook List
+================================ */
+
+.guestbook-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  margin-top: 28px;
+}
+
+.guestbook-item {
+  position: relative;
+
+  padding: 16px;
+
+  border: 1px solid #E8E9DE;
+  border-radius: 4px;
+
+  background: #FFFDF5;
+}
+
+
+/* 이름 / 삭제 */
+
+.guestbook-item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 8px;
+}
+
+.guestbook-item-header strong {
+  color: #66745F;
+
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.guestbook-item-header button {
+  padding: 0;
+
+  border: 0;
+  background: transparent;
+
+  color: #A5ADA0;
+
+  font-family: inherit;
+  font-size: 11px;
+
+  cursor: pointer;
+}
+
+.guestbook-item-header button:hover {
+  color: #66745F;
+}
+
+
+/* 메시지 */
+
+.guestbook-message {
+  margin: 0;
+
+  color: #7C8872;
+
+  font-size: 13px;
+  line-height: 1.7;
+
+  white-space: pre-wrap;
+}
+
+
+/* 날짜 */
+
+.guestbook-date {
+  display: block;
+
+  margin-top: 8px;
+
+  color: #B2B9A8;
+
+  font-size: 10px;
+}
+
+
+/* ================================
+   More Button
+================================ */
+
+.guestbook-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px 0;
+
+  border: 1px solid #E8E9DE;
+  border-radius: 4px;
+
+  background: transparent;
+
+  color: #7C8872;
+
+  font-family: inherit;
+  font-size: 12px;
+  letter-spacing: 1px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.guestbook-more:hover {
+  background: #FFF8D9;
+  border-color: #E1D98D;
+}
+
+.guestbook-more:active {
+  transform: scale(0.99);
+}
+
+.guestbook-more-count {
+  margin-left: 8px;
+
+  color: #A5ADA0;
+
+  font-size: 10px;
+}

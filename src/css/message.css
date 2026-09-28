@@ -5,7 +5,7 @@
 .message-section {
     padding: 110px 0;
 
-    background: #FBF7F1;
+    
 
     color: #75655D;
 }
@@ -31,7 +31,7 @@
 
     padding-top: 40px;
 
-    color: #C99582;
+    color: var(--color-sub-color);
 
     font-family: serif;
 
@@ -59,7 +59,6 @@
 
     color: #75655D;
 
-    font-family: serif;
 
     font-size: 13px;
 
@@ -94,9 +93,8 @@
 
 
 .message-signature strong {
-    color: #A96F5D;
+    color: var(--color-sub-color);
 
-    font-family: serif;
 
     font-size: 15px;
 

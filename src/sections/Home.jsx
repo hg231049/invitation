@@ -2,147 +2,132 @@ import '../css/home.css';
 import openingImage from '../assets/opening.jpeg';
 import { motion } from 'framer-motion';
 
-const Home = ({ isOpen, setIsOpen }) => {
-
-  const handleOpen = () => {
-    if (isOpen) return;
-    setIsOpen(true);
-  };
+const Home = () => {
 
   return (
-    <section className={`opening ${isOpen ? 'is-open' : ''}`}>
-      <div
-        className="book"
-        onClick={handleOpen}
-      >
-        <div className="inside-page">
-          <img
-            src={openingImage}
-            alt="오프닝 사진"
-          />
-          <div className="inside-overlay" />
-            <div className="inside-content">
+    <section className="opening">
 
-              <motion.span
-                className="our"
-                initial={{
-                  opacity: 0,
-                  y: 25,
-                }}
-                animate={
-                  isOpen
-                    ? {
-                        opacity: 1,
-                        y: 0,
-                      }
-                    : {
-                        opacity: 0,
-                        y: 25,
-                      }
-                }
-                transition={{
-                  delay: 1.05,
-                  duration: 0.6,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-              >
-                Happy
-              </motion.span>
+      {/* ==================================================
+          INTRO
+      ================================================== */}
 
-              <motion.h1
-                className="font-pf"
-                initial="hidden"
-                animate={isOpen ? 'visible' : 'hidden'}
-                variants={{
-                  hidden: {},
+      <motion.div
+          className="intro"
+          initial={{ opacity: 1 }}
+          animate={{ opacity: 0 }}
+          transition={{
+            delay: 3.6,
+            duration: 1.1,
+            ease: [0.4, 0, 0.2, 1],
+          }}
+        >
 
-                  visible: {
-                    transition: {
-                      delayChildren: 1.45,
-                      staggerChildren: 0.2,
-                    },
-                  },
-                }}
-              >
+        <motion.div
+          className="intro-content"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            delay: 0.4,
+            duration: 0.9,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+        >
 
-                {['OUR', 'WEDDING', 'DAY'].map((text) => (
+          <span>HAPPY</span>
 
-                  <motion.span
-                    key={text}
-                    className="title-line"
+          <h1 className="font-pf typing-title">
+              {['OUR', 'WEDDING', 'DAY'].map((word, wordIndex) => (
+                <span key={word} className="typing-line">
+                  {[...word].map((char, charIndex) => (
+                    <motion.span
+                      key={`${word}-${charIndex}`}
+                      className="typing-char"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{
+                        delay: 0.8 + wordIndex * 0.75 + charIndex * 0.12,
+                        duration: 0.08,
+                        ease: 'linear',
+                      }}
+                    >
+                      {char}
+                    </motion.span>
+                  ))}
+                  {wordIndex < 2 && <br />}
+                </span>
+              ))}
+            </h1>
 
-                    variants={{
-                      hidden: {
-                        opacity: 0,
-                        y: 55,
-                        scale: 0.88,
-                      },
+          <p>
+            HAN HUNGU & LEE EUN SEO
+          </p>
 
-                      visible: {
-                        opacity: 1,
-                        y: 0,
-                        scale: 1,
+        </motion.div>
 
-                        transition: {
-                          type: 'spring',
-                          stiffness: 180,
-                          damping: 10,
-                          mass: 0.8,
-                        },
-                      },
-                    }}
-                  >
-                    {text}
-                  </motion.span>
+      </motion.div>
 
-                ))}
 
-              </motion.h1>
+      {/* ==================================================
+          MAIN
+      ================================================== */}
 
-              <motion.p
-                initial={{
-                  opacity: 0,
-                  y: 20,
-                }}
-                animate={
-                  isOpen
-                    ? {
-                        opacity: 1,
-                        y: 0,
-                      }
-                    : {
-                        opacity: 0,
-                        y: 20,
-                      }
-                }
-                transition={{
-                  delay: 2.8,
-                  duration: 0.6,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-              >
-                2027. 12. 11 SAT
-              </motion.p>
+      <div className="main-opening">
 
-            </div>
-        </div>
+        <img
+          src={openingImage}
+          alt="오프닝 사진"
+        />
 
-        <div className="cover">
-          <div className="cover-paper">
-            <div className="cover-content">
-              <span> WEDDING</span>
-              <h1>INVITATION</h1>
-              <p>LEE EUNSEO & HAN GUNGU</p>
-            </div>
-            <div className="paper-edge" />
+        <div className="inside-overlay" />
+
+
+        {/* MAIN CONTENT */}
+
+        <motion.div
+          className="inside-content"
+          initial={{
+            opacity: 0,
+            y: 25,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            delay: 3.35,
+            duration: 1,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+        >
+
+          <div className="poster-title">
+
+            <h1>
+              WE'RE GETTING
+              MARRIED
+            </h1>
+
+   
+
           </div>
-        </div>
-      </div>
 
-      <div
-        className={`open-guide ${isOpen ? 'hidden' : ''}`}
-      >
-        <span>OPEN</span>
+
+          <div className="poster-info">
+            <div>
+              HAN GUNGU
+              <br />
+              & LEE EUNSEO
+            </div>
+
+            <div>
+              2027.12.11 SAT
+              <br />
+              AM 10:40
+            </div>
+          </div>
+
+        </motion.div>
+
       </div>
 
     </section>

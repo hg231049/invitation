@@ -1,5 +1,6 @@
 import { useState } from "react";
 import SectionTitle from "../components/SectionTitle";
+import "../css/account.css";
 
 const ACCOUNT_DATA = [
   {
@@ -23,7 +24,6 @@ const ACCOUNT_DATA = [
 const Account = () => {
   const [toastMessage, setToastMessage] = useState('');
 
-  // 처음에는 모든 계좌를 열어둠
   const [openIndexes, setOpenIndexes] = useState(
     ACCOUNT_DATA.map((_, idx) => idx)
   );
@@ -51,7 +51,7 @@ const Account = () => {
       });
   };
 
-  // 토스트 메세지
+  // 토스트 메시지
   const showToast = (msg) => {
     setToastMessage(msg);
 
@@ -61,7 +61,7 @@ const Account = () => {
   };
 
   return (
-    <section className="bg-[#FBF7F1]">
+    <section className="account-section">
       <div className="inner">
 
         <SectionTitle
@@ -69,7 +69,7 @@ const Account = () => {
           title="마음 전하실 곳"
         />
 
-        <div className="flex flex-col gap-3">
+        <div className="account-list">
 
           {ACCOUNT_DATA.map((family, idx) => {
             const isOpen = openIndexes.includes(idx);
@@ -77,56 +77,23 @@ const Account = () => {
             return (
               <div
                 key={idx}
-                className="
-                  overflow-hidden
-                  rounded-[4px]
-                  border
-                  border-[#E5D6CC]
-                  bg-[#fff]
-                "
+                className="account-group"
               >
 
                 {/* 토글 버튼 */}
                 <button
                   type="button"
                   onClick={() => handleToggle(idx)}
-                  className="
-                    flex
-                    w-full
-                    items-center
-                    justify-between
-                    border-0
-                    bg-transparent
-                    px-5
-                    py-4
-                    text-left
-                    cursor-pointer
-                  "
+                  className="account-toggle"
                 >
-                  <span
-                    className="
-                      text-[14px]
-                      font-medium
-                      text-[#A96F5D]
-                    "
-                  >
+                  <span className="account-group-title">
                     {family.group}
                   </span>
 
                   <span
-                    className={`
-                      flex
-                      h-6
-                      w-6
-                      items-center
-                      justify-center
-                      text-[18px]
-                      font-light
-                      text-[#A18D82]
-                      transition-transform
-                      duration-300
-                      ${isOpen ? 'rotate-45' : ''}
-                    `}
+                    className={`account-toggle-icon ${
+                      isOpen ? 'is-open' : ''
+                    }`}
                   >
                     +
                   </span>
@@ -134,115 +101,48 @@ const Account = () => {
 
                 {/* 계좌 내용 */}
                 <div
-                  className={`
-                    grid
-                    transition-all
-                    duration-300
-                    ease-in-out
-                    ${
-                      isOpen
-                        ? 'grid-rows-[1fr] opacity-100'
-                        : 'grid-rows-[0fr] opacity-0'
-                    }
-                  `}
+                  className={`account-content ${
+                    isOpen ? 'is-open' : ''
+                  }`}
                 >
-                  <div className="overflow-hidden">
+                  <div className="account-content-inner">
 
-                    <div
-                      className="
-                        border-t
-                        border-[#E8DAD2]
-                        px-5
-                      "
-                    >
+                    <div className="account-items">
 
                       {family.accounts.map((acc, aIdx) => (
                         <div
                           key={aIdx}
-                          className={`
-                            py-4
-                            ${
-                              aIdx < family.accounts.length - 1
-                                ? 'border-b border-dashed border-[#E8DAD2]'
-                                : ''
-                            }
-                          `}
+                          className="account-item"
                         >
 
-                          <div
-                            className="
-                              flex
-                              items-center
-                              justify-between
-                              gap-3
-                            "
-                          >
+                          <div className="account-info">
 
-                            {/* 계좌 정보 */}
-                            <div className="info">
+                            <div className="account-name">
+                              <span className="account-role">
+                                [{acc.role}]
+                              </span>
 
-                              <div className="flex items-center">
-
-                                <span
-                                  className="
-                                    mr-[6px]
-                                    text-[12px]
-                                    text-[#A18D82]
-                                  "
-                                >
-                                  [{acc.role}]
-                                </span>
-
-                                <strong
-                                  className="
-                                    text-[14px]
-                                    font-medium
-                                    text-[#75655D]
-                                  "
-                                >
-                                  {acc.name}
-                                </strong>
-
-                              </div>
-
-                              <div
-                                className="
-                                  mt-1
-                                  text-[13px]
-                                  text-[#8E776D]
-                                "
-                              >
-                                {acc.bank} {acc.number}
-                              </div>
-
+                              <strong>
+                                {acc.name}
+                              </strong>
                             </div>
 
-                            {/* 복사 버튼 */}
-                            <button
-                              type="button"
-                              onClick={() =>
-                                handleCopy(acc.bank, acc.number)
-                              }
-                              className="
-                                shrink-0
-                                rounded-full
-                                border
-                                border-[#D9B6A7]
-                                bg-[#F7EDE5]
-                                px-3
-                                py-1.5
-                                text-[11px]
-                                text-[#A96F5D]
-                                cursor-pointer
-                                transition
-                                hover:bg-[#F1E1D8]
-                                active:scale-95
-                              "
-                            >
-                              복사
-                            </button>
+                            <div className="account-number">
+                              {acc.bank} {acc.number}
+                            </div>
 
                           </div>
+
+                          {/* 복사 버튼 */}
+                          <button
+                            type="button"
+                            onClick={() =>
+                              handleCopy(acc.bank, acc.number)
+                            }
+                            className="account-copy"
+                          >
+                            복사
+                          </button>
 
                         </div>
                       ))}
@@ -260,22 +160,7 @@ const Account = () => {
 
         {/* TOAST */}
         {toastMessage && (
-          <div
-            className="
-              fixed
-              bottom-[30px]
-              left-1/2
-              z-[100]
-              -translate-x-1/2
-              rounded-full
-              bg-[#6F5147]
-              px-5
-              py-2.5
-              text-[12px]
-              text-[#FFF9F4]
-              shadow-lg
-            "
-          >
+          <div className="account-toast">
             {toastMessage}
           </div>
         )}

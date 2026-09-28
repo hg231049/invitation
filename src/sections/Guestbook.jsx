@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import SectionTitle from "../components/SectionTitle";
+import '../css/guest.css';
 
 const supabase = createClient(
   'https://godyxtxgjwhnbaasipja.supabase.co',
@@ -8,7 +9,6 @@ const supabase = createClient(
 );
 
 const Guestbook = () => {
-
   const [messages, setMessages] = useState([]);
 
   const [form, setForm] = useState({
@@ -18,8 +18,6 @@ const Guestbook = () => {
   });
 
   const [loading, setLoading] = useState(false);
-
-  // 한 번에 보여줄 방명록 개수
   const [visibleCount, setVisibleCount] = useState(3);
 
   // 방명록 목록 불러오기
@@ -75,8 +73,6 @@ const Guestbook = () => {
       });
 
       fetchGuestbook();
-
-      // 새 글 작성 후 다시 3개만 보이도록
       setVisibleCount(3);
     }
   };
@@ -90,7 +86,6 @@ const Guestbook = () => {
     if (!inputPassword) return;
 
     if (inputPassword === originalPassword) {
-
       const { error } = await supabase
         .from('guestbook')
         .delete()
@@ -102,7 +97,6 @@ const Guestbook = () => {
       } else {
         alert('삭제 처리 중 오류가 발생했습니다.');
       }
-
     } else {
       alert('비밀번호가 일치하지 않습니다.');
     }
@@ -113,11 +107,10 @@ const Guestbook = () => {
     setVisibleCount((prev) => prev + 3);
   };
 
-  // 현재 보여줄 방명록
   const visibleMessages = messages.slice(0, visibleCount);
 
   return (
-    <section className="section bg-[#FBF7F1]">
+    <section className="section guestbook-section">
       <div className="inner">
 
         <SectionTitle
@@ -128,32 +121,11 @@ const Guestbook = () => {
         {/* 작성 FORM */}
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col gap-2"
+          className="guestbook-form"
         >
 
           {/* 이름 / 비밀번호 */}
-          <div
-            className="
-              flex
-              w-full
-              gap-2
-
-              [&_input]:w-full
-              [&_input]:flex-1
-              [&_input]:p-3
-              [&_input]:border
-              [&_input]:border-solid
-              [&_input]:border-[#E5D6CC]
-              [&_input]:rounded-[4px]
-              [&_input]:bg-[#FFFCF8]
-              [&_input]:text-[#75655D]
-              [&_input]:text-[13px]
-              [&_input]:outline-none
-              [&_input]:placeholder:text-[#B5A59D]
-
-              [&_input:focus]:border-[#C99582]
-            "
-          >
+          <div className="guestbook-input-row">
             <input
               type="text"
               placeholder="성함"
@@ -191,41 +163,13 @@ const Guestbook = () => {
                 message: e.target.value
               })
             }
-            className="
-              p-3
-              border
-              border-solid
-              border-[#E5D6CC]
-              rounded-[4px]
-              bg-[#FFFCF8]
-              text-[13px]
-              text-[#75655D]
-              placeholder:text-[#B5A59D]
-              outline-none
-              resize-none
-              focus:border-[#C99582]
-            "
           />
 
           {/* SUBMIT */}
           <button
             type="submit"
             disabled={loading}
-            className="
-              p-3
-              rounded-[4px]
-              border
-              border-[#C99582]
-              bg-[#C99582]
-              text-[#FFFDFC]
-              text-[13px]
-              cursor-pointer
-              transition
-              hover:bg-[#B98573]
-              active:scale-[.99]
-              disabled:cursor-default
-              disabled:opacity-60
-            "
+            className="guestbook-submit"
           >
             {loading ? '등록 중...' : '축하글 남기기'}
           </button>
@@ -233,29 +177,18 @@ const Guestbook = () => {
         </form>
 
         {/* GUESTBOOK LIST */}
-        <div className="flex flex-col gap-3 mt-7">
+        <div className="guestbook-list">
 
           {visibleMessages.map((item) => (
             <div
               key={item.id}
-              className="
-                relative
-                p-4
-                rounded-[4px]
-                bg-[#FFFCF8]
-                border
-                border-[#E5D6CC]
-              "
+              className="guestbook-item"
             >
 
               {/* NAME / DELETE */}
-              <div className="flex justify-between mb-2">
+              <div className="guestbook-item-header">
 
-                <strong className="
-                  text-[14px]
-                  font-medium
-                  text-[#75655D]
-                ">
+                <strong>
                   {item.name}
                 </strong>
 
@@ -264,14 +197,6 @@ const Guestbook = () => {
                   onClick={() =>
                     handleDelete(item.id, item.password)
                   }
-                  className="
-                    text-[#A18D82]
-                    text-[11px]
-                    border-0
-                    bg-transparent
-                    cursor-pointer
-                    hover:text-[#C99582]
-                  "
                 >
                   삭제
                 </button>
@@ -279,23 +204,12 @@ const Guestbook = () => {
               </div>
 
               {/* MESSAGE */}
-              <p className="
-                m-0
-                text-[13px]
-                leading-[1.7]
-                text-[#75655D]
-                whitespace-pre-wrap
-              ">
+              <p className="guestbook-message">
                 {item.message}
               </p>
 
               {/* DATE */}
-              <span className="
-                block
-                mt-2
-                text-[10px]
-                text-[#A18D82]
-              ">
+              <span className="guestbook-date">
                 {new Date(item.created_at).toLocaleDateString()}
               </span>
 
@@ -309,28 +223,11 @@ const Guestbook = () => {
           <button
             type="button"
             onClick={handleLoadMore}
-            className="
-              flex
-              items-center
-              justify-center
-              w-full
-              mt-5
-              py-3.5
-              border
-              border-[#E5D6CC]
-              rounded-[4px]
-              bg-transparent
-              text-[12px]
-              text-[#A96F5D]
-              tracking-[1px]
-              cursor-pointer
-              transition
-              hover:bg-[#F7EDE5]
-              active:scale-[.99]
-            "
+            className="guestbook-more"
           >
-            더보기
-            <span className="ml-2 text-[10px]">
+            <span>더보기</span>
+
+            <span className="guestbook-more-count">
               {Math.min(visibleCount + 3, messages.length)}
               /
               {messages.length}

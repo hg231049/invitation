@@ -29,21 +29,27 @@
 ================================================== */
 
 @theme {
-  /* Imperial Hall Warm Tone */
+  /* 메인 */
+  --color-brand-color: #E7D65E;   /* 버터 연노랑 */
+  --color-yellow: #E7D65E;
+  --color-yellow-dark: #D8C54D;
 
-  --color-brand-color: #C99582;
-  --color-sub-color: #FBF7F1;
+  /* 배경 */
+  --color-ivory: #FFFEF9;         /* 메인 상아빛 */
+  --color-sub-color: #66745F;     /* 서브 색상 */
+  --color-light-ivory: #FFF9E8;   /* 연한 노랑빛 아이보리 */
+  --color-yellow-bg: #FFF8D9;     /* 포인트 배경 */
 
-  --color-ivory: #fffefe;
-  --color-peach: #F7EDE5;
-  --color-peach-point: #E8C5B5;
-  --color-rose: #C99582;
-  --color-warm-brown: #A96F5D;
-  --color-text: #75655D;
-  --color-light-text: #A18D82;
-  --color-line: #E5D6CC;
+  /* 텍스트 */
+  --color-text: #9B938B;          /* 따뜻한 연회색 */
+  --color-light-text: #B9B2AA;
+  
+  /* 라인 */
+  --color-line: #F0EBD9;
 
-  --max-width-inner: 1660px;
+  --color-white: #FFFFFF;
+
+  --max-width-inner: 600px;
 }
 
 
@@ -55,7 +61,7 @@
   .inner {
     @apply max-w-(--max-width-inner) mx-auto px-[20px] py-10 w-full box-border;
 
-    background: var(--color-ivory);
+    background: #fff;
   }
 }
 
@@ -70,7 +76,7 @@ body {
 
   width: 100%;
 
-  background: #fff;
+  background: #FFFEF9;
 }
 
 
@@ -99,7 +105,7 @@ body {
 .font-pf {
   font-family: "Petit Formal Script", cursive;
 }
-
+.font-ni {  font-family: "Noto Serif Ahom", serif; }
 
 /* ==================================================
    SCROLLBAR
@@ -154,7 +160,7 @@ html::-webkit-scrollbar,
 
   box-sizing: border-box;
 
-  background: #FBF7F1;
+  background: var(--color-ivory);
 
   color: #75655D;
 }
@@ -176,7 +182,7 @@ html::-webkit-scrollbar,
 
   font-size: 20px;
 
-  color: #C99582;
+  color: var(--color-sub-color);
 
   opacity: 0.35;
 }
@@ -195,11 +201,11 @@ html::-webkit-scrollbar,
 
   color: #75655D;
 
-  border: 1px solid #E5D6CC;
+  border: 1px solid var(--color-sub-color);
 
   border-radius: 5px;
 
-  background: #FFFCF8;
+  background: #fff;
 
   outline: none;
 }

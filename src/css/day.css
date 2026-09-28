@@ -1,14 +1,11 @@
-
 /* ==================================================
    DAY SECTION
 ================================================== */
 
 .day-section {
     padding: 0;
-
-    background: #FBF7F1;
-
-    color: #75655D;
+    background: #FFFEF9;
+    color: #7C8872;
 }
 
 
@@ -18,10 +15,8 @@
 
 .day-date {
     margin-top: 55px;
-
     text-align: center;
-
-    color: #75655D;
+    color: #66745F;
 }
 
 
@@ -32,14 +27,11 @@
 .day-date__year {
     margin: 0 0 18px;
 
-    color: #A18D82;
+    color: #9AA58C;
 
     font-family: serif;
-
     font-size: 10px;
-
     font-weight: 400;
-
     letter-spacing: 5px;
 }
 
@@ -50,10 +42,8 @@
 
 .day-date__main {
     display: flex;
-
     align-items: baseline;
     justify-content: center;
-
     gap: 12px;
 }
 
@@ -61,16 +51,12 @@
 /* MONTH */
 
 .day-date__month {
-    color: #A98273;
+    color: #7C8872;
 
     font-family: serif;
-
     font-size: 15px;
-
     font-weight: 400;
-
     letter-spacing: 2px;
-
     text-transform: uppercase;
 }
 
@@ -78,16 +64,12 @@
 /* DATE NUMBER */
 
 .day-date__main strong {
-    color: #C99582;
+    color: #66745F;
 
     font-family: serif;
-
     font-size: 58px;
-
     font-weight: 400;
-
     line-height: .9;
-
     letter-spacing: -2px;
 }
 
@@ -95,12 +77,10 @@
 /* WEEKDAY */
 
 .day-date__weekday {
-    color: #A18D82;
+    color: #9AA58C;
 
     font-family: serif;
-
     font-size: 12px;
-
     letter-spacing: 1px;
 }
 
@@ -112,12 +92,10 @@
 .day-date__time {
     margin: 20px 0 0;
 
-    color: #8E776D;
+    color: #7C8872;
 
     font-size: 10px;
-
     letter-spacing: 4px;
-
     text-transform: uppercase;
 }
 
@@ -136,23 +114,19 @@
 ================================================== */
 
 .invitation-calendar .react-calendar {
-
     width: 100%;
-
     max-width: 390px;
 
     margin: 0 auto;
-
     padding: 20px 15px 22px;
 
-    border: 1px solid #E5D6CC;
-
+    border: 1px solid #E8E9DE;
     border-radius: 3px;
 
-    background: rgba(255, 253, 249, .72);
+    background: #fff;
 
     box-shadow:
-        0 15px 40px rgba(120, 85, 70, .06);
+        0 15px 40px rgba(100, 110, 80, .05);
 }
 
 
@@ -162,24 +136,19 @@
 
 .invitation-calendar
 .react-calendar__navigation {
-
     height: 38px;
-
     margin-bottom: 12px;
 }
 
 
 .invitation-calendar
 .react-calendar__navigation button {
-
     min-width: 38px;
 
-    color: #75655D;
+    color: #66745F;
 
     font-family: serif;
-
     font-size: 13px;
-
     font-weight: 400;
 
     background: transparent;
@@ -190,9 +159,7 @@
 .react-calendar__navigation button:enabled:hover,
 .invitation-calendar
 .react-calendar__navigation button:enabled:focus {
-
-    color: #C99582;
-
+    color: #7C8872;
     background: transparent;
 }
 
@@ -203,28 +170,22 @@
 
 .invitation-calendar
 .react-calendar__month-view__weekdays {
-
     margin-bottom: 5px;
 }
 
 
 .invitation-calendar
 .react-calendar__month-view__weekdays__weekday {
-
     padding: 8px 0;
 
-    color: #A18D82;
+    color: #9AA58C;
 
     font-family: serif;
-
     font-size: 9px;
-
     font-weight: 400;
-
     letter-spacing: 1px;
 
     text-decoration: none;
-
     text-transform: uppercase;
 }
 
@@ -233,8 +194,7 @@
 
 .invitation-calendar
 .react-calendar__month-view__weekdays__weekday:first-child {
-
-    color: #C99582;
+    color: #B1B78D;
 }
 
 
@@ -242,8 +202,7 @@
 
 .invitation-calendar
 .react-calendar__month-view__weekdays__weekday:last-child {
-
-    color: #A98273;
+    color: #87937D;
 }
 
 
@@ -253,21 +212,17 @@
 
 .invitation-calendar
 .react-calendar__tile {
-
     position: relative;
 
     height: 46px;
-
     padding: 0;
 
     border-radius: 0;
 
-    color: #75655D;
+    color: #66745F;
 
     font-family: serif;
-
     font-size: 12px;
-
     font-weight: 400;
 
     background: transparent;
@@ -278,10 +233,8 @@
 
 .invitation-calendar
 .react-calendar__tile:enabled:hover {
-
     border-radius: 50%;
-
-    background: #F5E5DC;
+    background: #FFF8D9;
 }
 
 
@@ -289,10 +242,8 @@
 
 .invitation-calendar
 .react-calendar__tile--now {
-
     background: transparent;
-
-    color: #A98273;
+    color: #7C8872;
 }
 
 
@@ -300,10 +251,8 @@
 
 .invitation-calendar
 .react-calendar__tile--active {
-
     background: transparent;
-
-    color: #75655D;
+    color: #66745F;
 }
 
 
@@ -313,44 +262,64 @@
 
 .invitation-heart {
     position: absolute;
+
     top: 50%;
     left: 50%;
+
     width: 22px;
     height: 22px;
-    transform: translate(-50%, -50%) rotate(-45deg);
-    background: #C99582;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(-45deg);
+
+    background: var(--color-sub-color);
+
     z-index: 2;
 }
+
 
 .invitation-heart::before,
 .invitation-heart::after {
     content: "";
+
     position: absolute;
+
     width: 22px;
     height: 22px;
+
     border-radius: 50%;
-    background: #C99582;
+
+    background: var(--color-sub-color);
 }
+
 
 .invitation-heart::before {
     top: -11px;
     left: 0;
 }
 
+
 .invitation-heart::after {
     top: 0;
     left: 11px;
 }
 
+
 .invitation-heart span {
     position: absolute;
+
     top: 50%;
     left: 50%;
+
     z-index: 3;
 
-    transform: translate(-50%, -50%) rotate(45deg);
+    transform:
+        translate(-50%, -50%)
+        rotate(45deg);
 
-    color: #FFFDFC;
+    color: #FFFDF5;
+
     font-family: serif;
     font-size: 9px;
     font-weight: 500;
@@ -376,17 +345,13 @@
 ================================================== */
 
 .day-countdown__label {
-
     margin: 0 0 18px;
 
-    color: #A18D82;
+    color: #9AA58C;
 
     font-family: serif;
-
     font-size: 12px;
-
     letter-spacing: 4px;
-
     text-transform: uppercase;
 }
 
@@ -396,7 +361,6 @@
 ================================================== */
 
 .dday-box {
-
     display: grid;
 
     grid-template-columns:
@@ -404,9 +368,8 @@
 
     padding: 22px 5px;
 
-    border-top: 1px solid #E5D6CC;
-
-    border-bottom: 1px solid #E5D6CC;
+    border-top: 1px solid #E8E9DE;
+    border-bottom: 1px solid #E8E9DE;
 }
 
 
@@ -415,15 +378,12 @@
 ================================================== */
 
 .time-unit {
-
     position: relative;
-
     text-align: center;
 }
 
 
 .time-unit:not(:last-child)::after {
-
     content: '';
 
     position: absolute;
@@ -434,10 +394,9 @@
     width: 1px;
     height: 28px;
 
-    transform:
-        translateY(-50%);
+    transform: translateY(-50%);
 
-    background: #E8DAD2;
+    background: #E8E9DE;
 }
 
 
@@ -446,19 +405,15 @@
 ================================================== */
 
 .time-unit span {
-
     display: block;
 
     margin-bottom: 7px;
 
-    color: #75655D;
+    color: #66745F;
 
     font-family: serif;
-
     font-size: 25px;
-
     font-weight: 400;
-
     line-height: 1;
 }
 
@@ -468,17 +423,13 @@
 ================================================== */
 
 .time-unit p {
-
     margin: 0;
 
-    color: #A18D82;
+    color: #9AA58C;
 
     font-family: serif;
-
     font-size: 7px;
-
     font-weight: 400;
-
     letter-spacing: 2px;
 }
 
@@ -488,23 +439,18 @@
 ================================================== */
 
 .dday-text {
-
     margin: 20px 0 0;
 
-    color: #8E776D;
+    color: #7C8872;
 
     font-size: 12px;
-
     font-weight: 400;
-
     letter-spacing: .5px;
 }
 
 
 .dday-text b {
-
-    color: #C99582;
-
+    color: var(--color-sub-color);
     font-weight: 500;
 }
 
@@ -547,7 +493,6 @@
 
     .day-date__time {
         margin-top: 17px;
-
         letter-spacing: 3px;
     }
 
@@ -564,15 +509,14 @@
 
     .invitation-calendar
     .react-calendar__tile {
-
         height: 43px;
-
         font-size: 11px;
     }
 
 
     .invitation-heart {
-        font-size: 9px;
+        width: 22px;
+        height: 22px;
     }
 
 
@@ -593,7 +537,6 @@
 
     .time-unit p {
         font-size: 6px;
-
         letter-spacing: 1.5px;
     }
 
@@ -602,4 +545,3 @@
         font-size: 12px;
     }
 }
-

@@ -137,12 +137,12 @@
 
     border: 0;
 
-    border-top: 1px solid #E5D6CC;
-    border-bottom: 1px solid #E5D6CC;
+    border-top: 1px solid #9AA58C;
+    border-bottom: 1px solid #9AA58C;
 
     background: none;
 
-    color: #75655D;
+    color: var(--color-sub-color);
 
     cursor: pointer;
 
@@ -190,7 +190,7 @@
     align-items: center;
     justify-content: center;
 
-    background: rgba(65, 48, 42, .96);
+    background: rgba(45, 50, 40, 0.94);
 
     /* 선택 방지 */
     user-select: none;
