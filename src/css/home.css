@@ -4,14 +4,27 @@
 
 .opening {
     position: relative;
-
     width: 100%;
     height: 100svh;
     min-height: 650px;
-
     overflow: hidden;
-
     background: #FBF7F1;
+}
+
+.main-opening {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* 이미지 확대 시 스크롤바 생성 방지 */
+}
+
+.main-opening > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    will-change: transform; /* 애니메이션 성능 최적화 */
 }
 
 
@@ -126,14 +139,68 @@
 
 .inside-overlay {
     position: absolute;
-
     inset: 0;
+    background: rgba(20, 15, 10, 0.18); /* 배경 글레어에 맞춘 어두운 오버레이 */
+    z-index: 1;
+}
 
-    /*
-        사진 색감을 최대한 살림
-        참고 이미지처럼 하늘/배경이 선명하게 보이도록
-    */
-    background: rgba(30, 25, 15, .15);
+.inside-content {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 6% 7% 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    color: #E8D95A;
+    z-index: 2;
+}
+
+/* 메인 타이틀 텍스트 섀도우 (노란 물결 빛 배경용) */
+.inside-content h1 {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    color: #E8D95A;
+    text-shadow: 
+        0 2px 4px rgba(40, 25, 5, 0.35),
+        0 6px 20px rgba(60, 40, 10, 0.25);
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(52px, 13vw, 72px);
+    font-weight: 400;
+    line-height: .82;
+    letter-spacing: -3px;
+}
+
+/* Save the Date 필기체 섀도우 */
+.inside-content h1::after {
+    content: "Save the Date";
+    display: block;
+    margin-top: -3px;
+    color: #DED15A;
+    text-shadow: 
+        0 1px 3px rgba(40, 25, 5, 0.35),
+        0 4px 16px rgba(60, 40, 10, 0.25);
+    font-family: "Petit Formal Script", cursive;
+    font-size: clamp(25px, 7vw, 34px);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0;
+    transform: rotate(-3deg);
+}
+
+.poster-info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    color: #E8D95A;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    font-size: 12px;
+    letter-spacing: 1.5px;
 }
 
 
