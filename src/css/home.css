@@ -199,7 +199,9 @@
     margin: 0;
 
     color: #E8D95A;
-    text-shadow: 0 2px 16px rgba(120, 90, 20, 0.82);
+   text-shadow: 
+        0 1px 3px rgba(80, 60, 10, 0.25),
+        0 4px 20px rgba(100, 80, 20, 0.18);
     font-family: Georgia, 'Times New Roman', serif;
 
     font-size: clamp(52px, 13vw, 72px);
@@ -232,7 +234,9 @@
     margin-top: -3px;
 
     color: #DED15A;
-
+    text-shadow: 
+        0 1px 3px rgba(80, 60, 10, 0.25),
+        0 4px 20px rgba(100, 80, 20, 0.18);
     font-family: "Petit Formal Script", cursive;
 
     font-size: clamp(25px, 7vw, 34px);
