@@ -2,13 +2,16 @@ import React, { useState } from 'react';
 
 const KAKAO_JAVASCRIPT_KEY = 'a8c4c11e39587dfb19e4622aa34558b4';
 
+// 실제 배포된 청첩장 주소
+const WEDDING_URL = 'https://invitation-seven-alpha.vercel.app/';
+
 export default function Share() {
   const [copied, setCopied] = useState(false);
 
   // 링크 복사
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText(window.location.href);
+      await navigator.clipboard.writeText(WEDDING_URL);
 
       setCopied(true);
 
@@ -36,24 +39,26 @@ export default function Share() {
 
       content: {
         title: '초대합니다',
+
         description:
-          '2026년 10월 24일 토요일 오후 1시\n아모리스 역삼 3층',
+          '2027년 12월 11일 토요일 오전 10시 40분\n월드컵컨벤션 임페리얼홀',
 
         imageUrl:
           'https://images.unsplash.com/photo-1519741497674-611481863552?w=800',
 
         link: {
-          mobileWebUrl: window.location.href,
-          webUrl: window.location.href,
+          mobileWebUrl: WEDDING_URL,
+          webUrl: WEDDING_URL,
         },
       },
 
       buttons: [
         {
           title: '모바일 초대장 보기',
+
           link: {
-            mobileWebUrl: window.location.href,
-            webUrl: window.location.href,
+            mobileWebUrl: WEDDING_URL,
+            webUrl: WEDDING_URL,
           },
         },
       ],
@@ -81,12 +86,9 @@ export default function Share() {
           text-[11px]
           tracking-wide
           transition
-          hover:border-brand-color
-          hover:text-brand-color
           active:scale-95
         "
       >
-        {/* 링크 아이콘 */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="14"
@@ -126,12 +128,9 @@ export default function Share() {
           text-[11px]
           tracking-wide
           transition
-          hover:border-brand-color
-          hover:text-brand-color
           active:scale-95
         "
       >
-        {/* 카카오톡 아이콘 */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="14"
