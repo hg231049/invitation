@@ -101,7 +101,7 @@ const Home = () => {
             initial={{
               opacity: 0,
               y: 10,
-              rotate: -3,
+              rotate: 0,
             }}
             animate={{
               opacity: 1,
