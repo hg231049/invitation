@@ -13,11 +13,6 @@
 }
 
 
-.about-us-inner {
-    width: 100%;
-    max-width: 390px;
-    margin: 0 auto;
-}
 
 
 /* ==================================================
@@ -62,6 +57,7 @@
     align-items: flex-start;
     justify-content: center;
     gap: 14px;
+    margin-top: 55px;
 }
 
 .person-card {

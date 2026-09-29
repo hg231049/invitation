@@ -1,5 +1,5 @@
 import '../css/aboutUs.css';
-
+import SectionTitle from "../components/SectionTitle";
 import groomImage from '../assets/hgg.jpg';
 import brideImage from '../assets/les.jpg';
 
@@ -10,10 +10,11 @@ const AboutUs = () => {
       <div className="about-us-inner">
 
         {/* SECTION TITLE */}
-        <div className="about-us-heading">
-          <span>ABOUT US</span>
-          <h2>저희를 소개합니다</h2>
-        </div>
+        <SectionTitle
+            subTitle="ABOUT US"
+            title="소개합니다"
+        />
+
 
         
         <div className="person-list">
