@@ -15,7 +15,7 @@
     position: relative;
     width: 100%;
     height: 100%;
-    overflow: hidden; /* 이미지 확대 시 스크롤바 생성 방지 */
+    overflow: hidden;
 }
 
 .main-opening > img {
@@ -24,7 +24,7 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
-    will-change: transform; /* 애니메이션 성능 최적화 */
+    will-change: transform;
 }
 
 
@@ -34,9 +34,7 @@
 
 .intro {
     position: fixed;
-
     inset: 0;
-
     z-index: 100;
 
     display: flex;
@@ -48,20 +46,17 @@
     pointer-events: none;
 }
 
-
 .intro-content {
     text-align: center;
-
-    color: #747A52;
+    color: #66745F;
 }
-
 
 .intro-content > span {
     display: block;
 
     margin-bottom: 24px;
 
-    color:#7C8872;
+    color: #9AA58C;
 
     font-family: serif;
     font-size: 10px;
@@ -70,66 +65,45 @@
     letter-spacing: 5px;
 }
 
-
 .intro-content h1 {
     margin: 0;
 
-    color: var(--color-sub-color);
+    color: #66745F;
 
     font-family: "Petit Formal Script", cursive;
-
     font-size: 42px;
     font-weight: 400;
 
     line-height: 1.15;
 }
 
-
 .intro-content p {
     margin: 30px 0 0;
 
-    color: #A18D82;
+    color: #7C8872;
 
     font-family: serif;
-
     font-size: 12px;
     font-weight: 400;
 
     letter-spacing: 4px;
 }
 
+
+/* ==================================================
+   TYPING
+================================================== */
+
 .typing-title {
-  line-height: 1;
+    line-height: 1;
 }
 
 .typing-line {
-  display: inline;
+    display: inline;
 }
 
 .typing-char {
-  display: inline-block;
-}
-/* ==================================================
-   MAIN IMAGE
-================================================== */
-
-.main-opening {
-    position: relative;
-
-    width: 100%;
-    height: 100%;
-}
-
-
-.main-opening > img {
-    display: block;
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    object-position: center;
+    display: inline-block;
 }
 
 
@@ -140,67 +114,10 @@
 .inside-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(20, 15, 10, 0.18); /* 배경 글레어에 맞춘 어두운 오버레이 */
+
+    background: rgba(20, 15, 10, 0.18);
+
     z-index: 1;
-}
-
-.inside-content {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    padding: 6% 7% 5%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    text-align: center;
-    color: #E8D95A;
-    z-index: 2;
-}
-
-/* 메인 타이틀 텍스트 섀도우 (노란 물결 빛 배경용) */
-.inside-content h1 {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    color: #E8D95A;
-    text-shadow: 
-        0 2px 4px rgba(40, 25, 5, 0.35),
-        0 6px 20px rgba(60, 40, 10, 0.25);
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: clamp(52px, 13vw, 72px);
-    font-weight: 400;
-    line-height: .82;
-    letter-spacing: -3px;
-}
-
-/* Save the Date 필기체 섀도우 */
-.inside-content h1::after {
-    content: "Save the Date";
-    display: block;
-    margin-top: -3px;
-    color: #DED15A;
-    text-shadow: 
-        0 1px 3px rgba(40, 25, 5, 0.35),
-        0 4px 16px rgba(60, 40, 10, 0.25);
-    font-family: "Petit Formal Script", cursive;
-    font-size: clamp(25px, 7vw, 34px);
-    font-weight: 400;
-    line-height: 1;
-    letter-spacing: 0;
-    transform: rotate(-3deg);
-}
-
-.poster-info {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    color: #E8D95A;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-    font-size: 12px;
-    letter-spacing: 1.5px;
 }
 
 
@@ -210,7 +127,6 @@
 
 .inside-content {
     position: absolute;
-
     inset: 0;
 
     width: 100%;
@@ -228,29 +144,9 @@
 
     text-align: center;
 
-    color: #E8D95A;
-}
+    color: #E7D65E;
 
-
-/* ==================================================
-   TOP TITLE
-================================================== */
-
-.inside-content .our {
-    display: block;
-
-    margin: 0;
-
-    color: #E8D95A;
-
-    font-family: Georgia, 'Times New Roman', serif;
-
-    font-size: clamp(26px, 7vw, 38px);
-    font-weight: 400;
-
-    line-height: .95;
-
-    letter-spacing: -1.5px;
+    z-index: 2;
 }
 
 
@@ -260,86 +156,66 @@
 
 .inside-content h1 {
     display: flex;
-
     flex-direction: column;
 
     margin: 0;
 
-    color: #E8D95A;
-   text-shadow: 
+    color: #E7D65E;
+
+    text-shadow:
         0 1px 3px rgba(80, 60, 10, 0.25),
         0 4px 20px rgba(100, 80, 20, 0.18);
-    font-family: Georgia, 'Times New Roman', serif;
+
+    font-family: Georgia, "Times New Roman", serif;
 
     font-size: clamp(52px, 13vw, 72px);
     font-weight: 400;
 
     line-height: .82;
-
     letter-spacing: -3px;
 }
 
 
-.inside-content .title-line {
-    display: block;
+/* ==================================================
+   POSTER INFO
+================================================== */
+
+.poster-info {
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+
+    color: #E7D65E;
+
+    text-shadow:
+        0 1px 4px rgba(0, 0, 0, 0.3);
+
+    font-size: 12px;
+    letter-spacing: 1.5px;
 }
 
 
 /* ==================================================
-   SCRIPT EFFECT
+   SAVE THE DATE
 ================================================== */
+.save-date {
+    color: #E7D65E;
 
-/*
-    기존 h1 아래에 스크립트 문구처럼 보이는 장식
-*/
+    font-family: "Petit Formal Script", cursive;
+    font-size: clamp(24px, 7vw, 34px);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0;
 
-.inside-content h1::after {
-    content: "Save the Date";
-
-    display: block;
-
-    margin-top: -3px;
-
-    color: #DED15A;
-    text-shadow: 
+    text-shadow:
         0 1px 3px rgba(80, 60, 10, 0.25),
         0 4px 20px rgba(100, 80, 20, 0.18);
-    font-family: "Petit Formal Script", cursive;
-
-    font-size: clamp(25px, 7vw, 34px);
-    font-weight: 400;
-
-    line-height: 1;
-
-    letter-spacing: 0;
 
     transform: rotate(-3deg);
 }
 
 
-/* ==================================================
-   DATE
-================================================== */
-
-.inside-content p {
-    margin: 0;
-
-    color: #E8D95A;
-
-    font-family: Georgia, 'Times New Roman', serif;
-
-    font-size: 10px;
-    font-weight: 400;
-
-    line-height: 1.4;
-
-    letter-spacing: 2px;
-
-    text-transform: uppercase;
-}
-
-
-.poster-info { display: flex; justify-content: space-between; width: 100%; }
 
 /* ==================================================
    MOBILE
@@ -351,38 +227,26 @@
         min-height: 600px;
     }
 
-
     .intro-content h1 {
         font-size: 38px;
     }
-
 
     .inside-content {
         padding: 7% 5% 5%;
     }
 
-
-    .inside-content .our {
-        font-size: 27px;
-    }
-
-
     .inside-content h1 {
         font-size: 46px;
-
         line-height: .84;
     }
 
+    .poster-info {
+        font-size: 12px;
+        letter-spacing: 1.2px;
+    }
 
-    .inside-content h1::after {
+    .save-date {
+        
         font-size: 26px;
     }
-
-
-    .inside-content p {
-        font-size: 9px;
-
-        letter-spacing: 1.5px;
-    }
-
 }

@@ -41,7 +41,7 @@
   border: 1px solid #E8E9DE;
   border-radius: 4px;
 
-  background: #FFFDF5;
+  background: #fff;
 
   color: #66745F;
   font-family: inherit;
@@ -70,7 +70,7 @@
   border: 1px solid #E8E9DE;
   border-radius: 4px;
 
-  background: #FFFDF5;
+  background: #fff;
 
   color: #66745F;
   font-family: inherit;
@@ -96,10 +96,10 @@
   width: 100%;
   padding: 12px;
 
-  border: 1px solid #66745F;
+  border: 1px solid var(--color-sub-color);
   border-radius: 4px;
 
-  background: #66745F;
+  background: var(--color-sub-color);
   color: #FFFEF9;
 
   font-family: inherit;
@@ -113,8 +113,8 @@
 }
 
 .guestbook-submit:hover {
-  background: #596652;
-  border-color: #596652;
+  background: var(--color-sub-color);
+  border-color: var(--color-sub-color);
 }
 
 .guestbook-submit:active {

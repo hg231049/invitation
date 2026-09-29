@@ -200,7 +200,7 @@
 }
 
 .account-copy:hover {
-  background: #FFF3BD;
+  background: var(--color-sub-color);
   border-color: #CDD5B9;
 }
 
@@ -225,7 +225,7 @@
 
   border-radius: 999px;
 
-  background: #66745F;
+  background: var(--color-sub-color);
 
   color: #FFFEF9;
 

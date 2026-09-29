@@ -1,5 +1,5 @@
 import '../css/home.css';
-import openingImage from '../assets/opening.jpeg';
+import openingImage from '../assets/gallery1.jpg';
 import { motion } from 'framer-motion';
 
 const Home = () => {
@@ -95,6 +95,27 @@ const Home = () => {
               WE'RE GETTING
               MARRIED
             </h1>
+            {/* 가장 마지막에 등장 */}
+          <motion.div
+            className="save-date"
+            initial={{
+              opacity: 0,
+              y: 10,
+              rotate: -3,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              rotate: -3,
+            }}
+            transition={{
+              delay: 6.0,
+              duration: 0.8,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+          >
+            Save the Date
+          </motion.div>
           </div>
 
           <div className="poster-info">
@@ -110,6 +131,7 @@ const Home = () => {
               AM 10:40
             </div>
           </div>
+           
         </motion.div>
 
       </div>
