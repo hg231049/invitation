@@ -8,7 +8,7 @@ import Day from './sections/Day'
 import Account from './sections/Account'
 import Info from './sections/Info'
 import Guestbook from './sections/Guestbook'
-import SnowEffect from './components/SnowEffect'
+import AboutUs from './sections/AboutUs'
 
 function App() {
 
@@ -33,6 +33,7 @@ function App() {
 
       <Day />
       <Message />
+      <AboutUs />
       <Gallery />
       <Info />
       <Account />

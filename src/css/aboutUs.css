@@ -1,0 +1,181 @@
+/* ==================================================
+   ABOUT US
+================================================== */
+
+.about-us-section {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 100px 20px;
+
+    background: #FFFEF9;
+    color: #66745F;
+}
+
+
+.about-us-inner {
+    width: 100%;
+    max-width: 390px;
+    margin: 0 auto;
+}
+
+
+/* ==================================================
+   TITLE
+================================================== */
+
+.about-us-heading {
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+
+.about-us-heading > span {
+    display: block;
+
+    margin-bottom: 16px;
+
+    color: #9AA58C;
+    font-size: 10px;
+    font-weight: 400;
+
+    letter-spacing: 5px;
+}
+
+
+.about-us-heading h2 {
+    margin: 0;
+
+    color: #66745F;
+    font-size: 22px;
+    font-weight: 400;
+
+    letter-spacing: -0.5px;
+}
+
+
+/* ==================================================
+   PERSON
+================================================== */
+.person-list {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 14px;
+}
+
+.person-card {
+    flex: 1;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+}
+
+
+/* 기존 .person-card + .person-card 삭제 */
+
+
+.person-photo {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    height: auto;
+
+    overflow: hidden;
+
+    background: #FFFDF5;
+}
+
+
+.person-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+}
+
+
+.person-info {
+    margin-top: 20px;
+}
+
+
+.person-role {
+    display: block;
+    margin-bottom: 8px;
+
+    color: #9AA58C;
+
+    font-size: 8px;
+    letter-spacing: 3px;
+}
+
+
+.person-info h3 {
+    margin: 0;
+
+    color: #66745F;
+
+    font-size: 14px;
+    font-weight: 400;
+
+    letter-spacing: 1px;
+}
+
+
+.person-intro {
+    margin: 10px 0 0;
+
+    color: #7C8872;
+
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+
+.person-tags {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+
+    margin-top: 13px;
+}
+
+
+.person-tags span {
+    color: #7C8872;
+
+    font-size: 9px;
+    line-height: 1.4;
+}
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 768px) {
+
+    .about-us-section {
+        padding: 80px 20px;
+    }
+
+
+    .about-us-heading {
+        margin-bottom: 50px;
+    }
+
+
+    .about-us-heading h2 {
+        font-size: 21px;
+    }
+
+}
