@@ -120,17 +120,18 @@ const Home = () => {
 
           <div className="poster-info">
             <div>
-              HAN GUNGU
-              <br />
-              & LEE EUNSEO
+              <span>신랑</span>
+              한건구
             </div>
 
             <div>
-              2027.12.11 SAT
-              <br />
-              AM 10:40
+              <span>신부</span>
+              이은서
             </div>
           </div>
+           <div className="poster-date">
+            2027.12.11 SAT AM10:40
+           </div>
            
         </motion.div>
 

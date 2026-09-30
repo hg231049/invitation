@@ -1,11 +1,10 @@
 import '../css/aboutUs.css';
 import SectionTitle from "../components/SectionTitle";
-import groomImage from '../assets/hgg.jpg';
-import brideImage from '../assets/les.jpg';
+
 
 const AboutUs = () => {
   return (
-    <section className="about-us-section">
+    <section className="about-us-section section">
 
       <div className="about-us-inner">
 

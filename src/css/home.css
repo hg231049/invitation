@@ -181,19 +181,21 @@
 ================================================== */
 
 .poster-info {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0 20px;
     display: flex;
     justify-content: space-between;
-
     width: 100%;
-
     color: #E7D65E;
-
     text-shadow:
         0 1px 4px rgba(0, 0, 0, 0.3);
-
     font-size: 12px;
+    font-weight: 500;
     letter-spacing: 1.5px;
 }
+.poster-info > div span { display: block; font-weight: 300; }
 
 
 /* ==================================================

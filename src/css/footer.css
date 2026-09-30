@@ -1,0 +1,236 @@
+/* ==================================================
+   FOOTER
+================================================== */
+
+.footer-section {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 0 20px 70px;
+
+    background: #FFFEF9;
+    color: #66745F;
+}
+
+
+.footer-inner {
+    width: 100%;
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+
+/* ==================================================
+   ENDING IMAGE
+================================================== */
+
+.footer-image {
+    width: 100%;
+    overflow: hidden;
+
+    background: #FFFDF5;
+}
+
+
+.footer-image img {
+    display: block;
+
+    width: 100%;
+    aspect-ratio: 4 / 5;
+
+    object-fit: cover;
+    object-position: center;
+
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+}
+
+
+/* ==================================================
+   ENDING CREDIT
+================================================== */
+
+.footer-credit {
+    padding: 70px 10px 0;
+}
+
+/* TITLE */
+
+.footer-credit h2 {
+    margin: 0;
+
+    color: #66745F;
+
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 27px;
+    font-weight: 400;
+
+    line-height: 1.05;
+    letter-spacing: 1px;
+}
+
+
+/* MESSAGE */
+
+.footer-message {
+    margin: 28px 0 0;
+
+    color: #7C8872;
+
+    font-size: 12px;
+    font-weight: 400;
+
+    line-height: 1.9;
+}
+
+
+/* ==================================================
+   NAMES
+================================================== */
+
+.footer-names {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 40px;
+
+    color: #66745F;
+    font-size: 12px;
+    font-weight: 400;
+
+    letter-spacing: 2px;
+}
+
+
+.footer-names i {
+    margin: 6px 4px;
+    font-size: 14px;
+    font-style: normal;
+}
+
+
+/* ==================================================
+   DATE
+================================================== */
+
+.footer-date {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 20px;
+    color: #9AA58C;
+    font-size: 9px;
+    font-weight: 400;
+
+    letter-spacing: 2px;
+}
+
+
+/* ==================================================
+   SHARE
+================================================== */
+
+.footer-share {
+    margin-top: 45px;
+}
+
+
+/*
+    기존 Share 컴포넌트의
+    py-8을 조금 줄여서 푸터에 맞춤
+*/
+
+.footer-share > div {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+/* ==================================================
+   FINAL CREDIT
+================================================== */
+
+.footer-final {
+    margin-top: 35px;
+}
+
+
+.footer-final > span {
+    display: block;
+
+    color: #9AA58C;
+
+    font-size: 8px;
+    font-weight: 400;
+
+    letter-spacing: 4px;
+}
+
+
+.footer-line {
+    width: 30px;
+    height: 1px;
+
+    margin: 13px auto;
+
+    background: #E7D65E;
+}
+
+
+.footer-final p {
+    margin: 0;
+
+    color: #B0B6A7;
+
+    font-size: 8px;
+    font-weight: 400;
+
+    letter-spacing: 2px;
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 768px) {
+
+    .footer-section {
+        padding: 0 0 55px;
+    }
+
+
+    .footer-credit {
+        padding-top: 60px;
+    }
+
+
+    .footer-credit h2 {
+        font-size: 25px;
+    }
+
+
+    .footer-message {
+        margin-top: 25px;
+        font-size: 11px;
+    }
+
+
+    .footer-names {
+        margin-top: 35px;
+    }
+
+
+    .footer-share {
+        margin-top: 40px;
+    }
+
+
+    .footer-final {
+        margin-top: 30px;
+    }
+
+}

@@ -7,8 +7,7 @@ import Gallery from './sections/Gallery'
 import Day from './sections/Day'
 import Account from './sections/Account'
 import Info from './sections/Info'
-import Guestbook from './sections/Guestbook'
-import AboutUs from './sections/AboutUs'
+import FooterSection from './sections/FooterSection'
 
 function App() {
 
@@ -30,14 +29,12 @@ function App() {
     <main>
 
       <Home />
-
       <Day />
       <Message />
-      <AboutUs />
       <Gallery />
       <Info />
       <Account />
-      <Guestbook />
+      <FooterSection />
 
 
     </main>
